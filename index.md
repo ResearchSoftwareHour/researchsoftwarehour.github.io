@@ -17,5 +17,5 @@ We broadcast on Twitch every Tuesday at 20:30 Central European Time /
 running `date --date='TZ="Europe/Helsinki" 21:30 next Tue'` from your
 terminal, or check [this
 link](http://www.timebie.com/std/helsinki.php?q=21.5).  Follow
-<https://twitter.com/bast> or <https://twitter.com/SciCompAalto> for
+<https://twitter.com/__radovan> or <https://twitter.com/SciCompAalto> for
 updates.
