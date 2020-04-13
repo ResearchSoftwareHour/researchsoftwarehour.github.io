@@ -25,3 +25,5 @@ Watcher's tools:
   repository](https://github.com/ResearchSoftwareHour/rsh-notes/issues).
   We would especially like contributed research code (open
   licenseable), which we can analyze and improve on-stream.
+* Updates/news on Twitter [@__radovan](https://twitter.com/__radovan) or
+  [@SciCompAalto](https://twitter.com/SciCompAalto).

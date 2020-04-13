@@ -6,7 +6,6 @@ description: >-
   kind of skills you don't learn academically.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://researchsoftwarehour.github.io"
-
 show_excerpts: true
 
 twitter_username: __radovan
