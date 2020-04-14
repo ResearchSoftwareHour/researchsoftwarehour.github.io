@@ -30,5 +30,5 @@ Watcher's tools:
   We would especially like contributed research code (open
   licenseable), which we can analyze on-stream and give (constructive)
   suggestions for improving reproducibility.
-* Updates/news on Twitter [@__radovan](https://twitter.com/__radovan) or
+* Updates/news on Twitter [@\_\_radovan](https://twitter.com/__radovan) or
   [@SciCompAalto](https://twitter.com/SciCompAalto).
