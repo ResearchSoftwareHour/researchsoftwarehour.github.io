@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Watch
-permalink: /about/
+permalink: /watch/
 ---
 
 We broadcast on Twitch every Tuesday at 20:30 Central European Time /
