@@ -32,3 +32,11 @@ Watcher's tools:
   suggestions for improving reproducibility.
 * Updates/news on Twitter [@\_\_radovan](https://twitter.com/__radovan) or
   [@SciCompAalto](https://twitter.com/SciCompAalto).
+
+**This is an open source production.** All material we produce is
+open-source licensed: material is CC-BY, code samples are the MIT
+license.  If you interact on-stream or through the tools above, you
+are giving permission for your contributions to be licensed as such.
+We will always remove identifying information, unless you specifically
+request otherwise.  We try to provide you with ways to interact as
+anonymously as possible.
