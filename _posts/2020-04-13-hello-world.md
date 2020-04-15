@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Hello world
-date:   2020-04-13 20:58:55 +0300
+date:   2020-04-28
 categories:
 excerpt_separator: <!--more-->
 ---
