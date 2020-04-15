@@ -8,7 +8,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://researchsoftwarehour.github.io"
 show_excerpts: true
 
-twitter_username: __radovan
+#twitter_username: ...
 #github_username:  jekyll
 
 minima:
