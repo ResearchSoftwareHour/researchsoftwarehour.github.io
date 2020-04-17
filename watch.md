@@ -23,6 +23,15 @@ There are several ways to reach us:
   [@SciCompAalto](https://twitter.com/SciCompAalto).
 
 
+**This is an open source production.** All material we produce is
+open-source licensed: material is CC-BY, code samples are the MIT
+license.  If you interact on-stream or through the tools above, you
+are giving permission for your contributions to be licensed as such.
+We will always remove identifying information, unless you specifically
+request otherwise.  We try to provide you with ways to interact as
+anonymously as possible.
+
+
 ### Community standards
 
 Be good to each other.  This is a place where everyone should learn.
