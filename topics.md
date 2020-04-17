@@ -4,78 +4,44 @@ title: Topics
 permalink: /topics/
 ---
 
-Our program will evolve as our audience likes, but below are some of
-our initial ideas.  You can suggest more in issues in the
-[rsh-notes repository](https://github.com/ResearchSoftwareHour/rsh-notes).
-
 Each week, we want to do some simple stuff, some advanced stuff, some
 stuff more towards software/programming, some stuff more towards
-scientific computing/Linux.
+scientific computing/Linux.  Most important, we want to show you the
+*spirit and joy of computing*.
 
-### Research programming
-Our first focus is research software skills, such as:
-
-- a tour of the Rust programming language
-- profiling code for CPU and memory bottlenecks
-- workflow management
-- pair programming with our normal work
-- CMake best practices
-- demonstrating few Python packages that we use all the time
-
-### Scientific computing support skills
-
-There are tons of related tools for working with code:
-
-- go through git usage
-- adding automated testing to a repo
-- moving documentation from X to readthedocs
-- working with pip/conda for Python
-- how we use GitHub
-
-### Evaluate *your* own code
-
-We can take the code from a listener, go through it, discuss and
-improve it.  Suggest by making an issue in the [rse-notes
-repository](https://github.com/ResearchSoftwareHour/rsh-notes)
-
-- The code should have some open license, so that we can distribute it
-  to our viewers and add it to our materials.  In return, we
-  distribute our improvements back to you.
-- We should be able to understand the gist of it quickly, and provide
-  some feedback to our community.
+See the full list of our latest ideas in [the rsh-notes
+repository](https://github.com/ResearchSoftwareHour/rsh-notes) and
+suggest more there.  *Broad categories and examples* below, and our
+program will evolve as our audience likes:
 
 
-### Other courses
-Go through sections of other courses, such as
-- [coderefinery](https://coderefinery.org/lessons/)
-- High-performance computing
+* **Research software**, since these days so many people need to
+  produce it, regardless of background: structuring software,
+  profiling, demonstrating useful packages for research, releasing
+  software, pair programming in our normal work.
 
-## Unix tools
+* **Scientific computing support skills**, tools you need to do
+  scientific computing: git, automated testing, documentation, working
+  with pip/conda, Github.
 
-Linux/Unix is the key to what we do, and having a good grasp of it
-will improve almost all of your work (whatever operating system you use):
+* **Evaluate watcher-submitted code**: We'll take code our watchers
+  submit, evaluate on stream and improve it.  Suggest by making an
+  issue in the [rse-notes
+  repository](https://github.com/ResearchSoftwareHour/rsh-notes)
 
-- bash, ssh, shell scripting, etc.
-- tmux/screen
-- getopts
-- git-pr
+* Go through bits of **regular courses**, such as
+  [CodeRefinery](https://coderefinery.org/lessons/).
 
-### Data management
+* **Unix and Linux tools**, since this is the base which most
+  scientific computing is built on: bash, ssh, tmux/screen, shell
+  scripting, etc.
 
-Everything is data, and sometimes your software problems are actually
-data problems:
+* **Data management**, since often the data is harder than the code:
+  optimizing data access, data formats, repositories, sharing data.
 
-- data management
-- data repositories
-- data formats, feather format.
-- optimizing data i/o
-- how to open source a code
+* **Open science and reproducibility**, since good software leads to
+  good science and vice versa: preparing software for release and wide
+  use, releasing software, making software citeable.
 
-### Open science and reproducibility
-
-Good software leads to good open science, and vice versa:
-
-- how to get a DOI
-- reprohack
-- docker containers: how to run an image, how to containerize something
-- getting your Python project to PyPI
+* **Discussion time**, we answer any questions you may have.  Try to
+  stump us!
