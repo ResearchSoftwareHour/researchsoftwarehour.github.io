@@ -9,7 +9,7 @@ url: "https://researchsoftwarehour.github.io"
 show_excerpts: true
 
 logo: /assets/images/logo-hashbang.png
-logo-twitter: /assets/images/logo-hashbang-big.png
+logo-twitter: https://researchsoftwarehour.github.io/assets/images/logo-hashbang-big.png
 favicon: /assets/images/logo-hashbang.ico
 
 #twitter_username: ...
