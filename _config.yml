@@ -4,9 +4,13 @@ description: >-
   Research Software Hour is a online show discussing scientific
   computing and research software designed to provide the informal
   kind of skills you don't learn academically.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site (leading slash), e.g. /blog
 url: "https://researchsoftwarehour.github.io"
 show_excerpts: true
+
+logo: /assets/images/logo-hashbang.png
+logo-twitter: /assets/images/logo-hashbang-big.png
+favicon: /assets/images/logo-hashbang.ico
 
 #twitter_username: ...
 #github_username:  jekyll
