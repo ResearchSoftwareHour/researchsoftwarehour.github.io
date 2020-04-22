@@ -20,8 +20,11 @@ minima:
 
 # Build settings
 markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+# We can switch back to regular theme once >2.5.1 is released
+#theme: minima
+remote_theme: jekyll/minima
 
 future: true
