@@ -1,8 +1,8 @@
-# Copy from minima upstream:
-#   https://github.com/jekyll/minima/blob/master/_layouts/home.html
 ---
 layout: default
 ---
+<!-- Copy from minima upstream:
+   https://github.com/jekyll/minima/blob/master/_layouts/home.html -->
 
 <div class="home">
   {%- if page.title -%}
@@ -35,6 +35,7 @@ layout: default
         </h3>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
+	  <p><i><a href="{{ post.url | relative_url }}">read more...</a></i></p>
         {%- endif -%}
       </li>
       {%- endfor -%}
