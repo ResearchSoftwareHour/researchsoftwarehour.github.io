@@ -12,11 +12,17 @@ logo: /assets/images/logo-hashbang.png
 logo-twitter: /assets/images/logo-hashbang-big.png
 favicon: /assets/images/logo-hashbang.ico
 
-#twitter_username: ...
-#github_username:  jekyll
-
 minima:
   date_format: "%-d %b %Y"
+  social_links:
+    twitter: __radovan
+    github: researchsoftwarehour
+    hackmd: "@researchsoftwarehour"
+    extra:
+      - url: https://github.com/bast/
+        name: "@bast"
+      - url: https://github.com/rkdarst/
+        name: "@rkdarst"
 
 # Build settings
 markdown: kramdown
