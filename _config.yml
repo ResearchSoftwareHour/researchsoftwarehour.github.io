@@ -20,9 +20,9 @@ minima:
     hackmd: "@researchsoftwarehour"
     extra:
       - url: https://github.com/bast/
-        name: "@bast"
+        name: "bast"
       - url: https://github.com/rkdarst/
-        name: "@rkdarst"
+        name: "rkdarst"
 
 # Build settings
 markdown: kramdown
