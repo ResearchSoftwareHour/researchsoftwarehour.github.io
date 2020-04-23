@@ -4,7 +4,7 @@ title: Topics
 permalink: /topics/
 ---
 
-Each week, we want to do some simple stuff, some advanced stuff, some
+Each week, we want to do some simple stuff, some more advanced stuff, some
 stuff more towards software/programming, some stuff more towards
 scientific computing/Linux.  Most important, we want to show you the
 *spirit and joy of computing*.
@@ -22,10 +22,10 @@ program will evolve as our audience likes:
 
 * **Scientific computing support skills**, tools you need to do
   scientific computing: git, automated testing, documentation, working
-  with pip/conda, Github.
+  with pip/conda, Github, Jupyter.
 
 * **Evaluate watcher-submitted code**: We'll take code our watchers
-  submit, evaluate on stream and improve it.  Suggest by making an
+  submit, evaluate on stream and give suggestions for improvements. Suggest by making an
   issue in the [rse-notes
   repository](https://github.com/ResearchSoftwareHour/rsh-notes)
 
@@ -39,9 +39,9 @@ program will evolve as our audience likes:
 * **Data management**, since often the data is harder than the code:
   optimizing data access, data formats, repositories, sharing data.
 
-* **Open science and reproducibility**, since good software leads to
+* **Open science, reproducibility, and credit**, since good software leads to
   good science and vice versa: preparing software for release and wide
   use, releasing software, making software citeable.
 
 * **Discussion time**, we answer any questions you may have.  Try to
-  stump us!
+  stump us! We will all learn from each other.
