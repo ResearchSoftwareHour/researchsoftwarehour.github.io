@@ -16,30 +16,32 @@ access to high-quality computing mentorship.
 <!--more-->
 
 [Radovan Bast](https://bast.fr) is a theoretical chemist turned
-Research Software Engineer.  He's worked in France, Stockholm, and now
+research software engineer.  He's worked in France, Stockholm, and now
 Tromsø at the border between science, software, and computational
-support.  He now works in the [High Performance Computing
-group](https://hpc.uit.no) at the University of Tromsø, Norway and
+support.  He now works as part of the [Sigma2 metacenter](https://documentation.sigma2.no/)
+at the University of Tromsø, Norway, and
 leads the [CodeRefinery](https://coderefinery.org) project.  Richard
 Darst is also a theoretical chemist turned computational research
 specialist and has worked in the United States and Finland.  He now
 works for [Aalto Scientific Computing](https://scicomp.aalto.fi) at
-Aalto University, Finland.  They met through the CodeRefinery project,
+Aalto University, Finland.  They met through the [CodeRefinery](https://coderefinery.org) project,
 which teaches best practices in research software.
 
 Together, we have decades of experience programming for science,
-mentoring, and teaching computing.  They've seen a *crisis of
+mentoring, and teaching computing. We have seen a *crisis of
 computing*, where computing demands are increasing while there isn't a
 corresponding increase in the *practical skills* that go along with
 it.  Mentoring does not reach enough people, and teaching does not
 take the role of hands-on mentoring or convey spirit of computing (and
 also still doesn't reach enough people).
+There is also lack of time and academic credit for investing time in improving
+programming and computing skills.
 
 Thus, we need another strategy.  We are trying this web show to
 combine informal teaching with the *feeling and spirit* of computing.
 
-We'll develop the program based on what people want, but broadly
-speaking we want to:
+We'll develop the program based on suggestions and also to maximize fun
+for us, but broadly speaking we wish to:
 
 * Have entertaining discussions about research software and
   computing.  Show why we enjoy it so much and how you can, too.
@@ -48,10 +50,13 @@ speaking we want to:
   introduce new ideas and point you where to look for more info.
 
 * Take code submitted by users and go through it and discuss how we'd
-  improve it - to show our whole thought process.
+  improve it - to show our whole thought process. We will do this constructively
+  and also critically review our own codes which we have written some time
+  ago.
 
 * Show you the errors we make and how we get through them.  And do our
-  own learning at the same time, too.
+  own learning at the same time, too. We are not experts in everything and we
+  believe in the pedagogy of errors and typos.
 
 * We'll cover everything from research software and data to high-performance
   computing and Linux.
