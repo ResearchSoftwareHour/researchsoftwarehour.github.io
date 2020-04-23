@@ -21,8 +21,10 @@ minima:
     extra:
       - url: https://github.com/bast/
         name: "bast"
+        icon: github
       - url: https://github.com/rkdarst/
         name: "rkdarst"
+        icon: github
 
 # Build settings
 markdown: kramdown
