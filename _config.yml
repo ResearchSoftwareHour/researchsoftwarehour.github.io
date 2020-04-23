@@ -12,16 +12,25 @@ logo: /assets/images/logo-hashbang.png
 logo-twitter: /assets/images/logo-hashbang-big.png
 favicon: /assets/images/logo-hashbang.ico
 
-#twitter_username: ...
-#github_username:  jekyll
-
 minima:
   date_format: "%-d %b %Y"
+  social_links:
+    twitter: __radovan
+    github: researchsoftwarehour
+    hackmd: "@researchsoftwarehour"
+    extra:
+      - url: https://github.com/bast/
+        name: "@bast"
+      - url: https://github.com/rkdarst/
+        name: "@rkdarst"
 
 # Build settings
 markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+# We can switch back to regular theme once >2.5.1 is released
+#theme: minima
+remote_theme: jekyll/minima
 
 future: true
