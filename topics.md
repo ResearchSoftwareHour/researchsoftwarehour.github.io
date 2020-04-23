@@ -25,7 +25,7 @@ program will evolve as our audience likes:
   with pip/conda, Github, Jupyter.
 
 * **Evaluate watcher-submitted code**: We'll take code our watchers
-  submit, evaluate on stream and improve it.  Suggest by making an
+  submit, evaluate on stream and give suggestions for improvements. Suggest by making an
   issue in the [rse-notes
   repository](https://github.com/ResearchSoftwareHour/rsh-notes)
 
