@@ -15,10 +15,16 @@ favicon: /assets/images/logo-hashbang.ico
 minima:
   date_format: "%-d %b %Y"
   social_links:
-    twitter: __radovan
+    #twitter: __radovan
     github: researchsoftwarehour
     hackmd: "@researchsoftwarehour"
     extra:
+      - url: https://twitter.com/__radovan
+        name: "__radovan"
+        icon: twitter
+      - url: https://twitter.com/SciCompAalto
+        name: "SciCompAalto"
+        icon: twitter
       - url: https://github.com/bast/
         name: "bast"
         icon: github
