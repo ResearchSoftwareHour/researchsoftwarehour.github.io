@@ -4,7 +4,7 @@ title: Convert to my time
 permalink: /time/
 ---
 
-We broadcast on Twitch every Tuesday at 20:30 Central European Time /
+We broadcast on [Twitch](https://www.twitch.tv/rshour) every Tuesday at 20:30 Central European Time /
 21:30 East European Time. You can probably find the next time by
 running the following command from your terminal:
 

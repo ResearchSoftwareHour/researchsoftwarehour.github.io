@@ -14,7 +14,7 @@ someone's research code, and discussion.
 Watchers can take part and contribute code to us which we analyze and discuss
 on stream.
 
-We broadcast on Twitch every Tuesday at 20:30 Central European Time /
+We broadcast on [Twitch](https://www.twitch.tv/rshour) every Tuesday at 20:30 Central European Time /
 21:30 East European Time (planned length of 1.5 hours).
 [Here](/time/) you can convert to your time.
 
