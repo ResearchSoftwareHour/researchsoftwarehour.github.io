@@ -6,7 +6,7 @@ permalink: /watch/
 
 There are several ways to reach us:
 
-* The **Twitch stream**
+* The **[Twitch stream](https://www.twitch.tv/rshour)**
   * You can use the Twitch chat to interact with us, but we prefer the
     HackMD pad (because we can thread discussions and share it afterwards).
 * A **HackMD pad**, which we use to share code, links, etc.
