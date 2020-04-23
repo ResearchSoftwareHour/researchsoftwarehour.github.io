@@ -39,7 +39,7 @@ program will evolve as our audience likes:
 * **Data management**, since often the data is harder than the code:
   optimizing data access, data formats, repositories, sharing data.
 
-* **Open science and reproducibility**, since good software leads to
+* **Open science, reproducibility, and credit**, since good software leads to
   good science and vice versa: preparing software for release and wide
   use, releasing software, making software citeable.
 
