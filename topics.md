@@ -44,4 +44,4 @@ program will evolve as our audience likes:
   use, releasing software, making software citeable.
 
 * **Discussion time**, we answer any questions you may have.  Try to
-  stump us!
+  stump us! We will all learn from each other.
