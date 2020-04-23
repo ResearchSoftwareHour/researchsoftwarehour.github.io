@@ -4,7 +4,7 @@ title: Topics
 permalink: /topics/
 ---
 
-Each week, we want to do some simple stuff, some advanced stuff, some
+Each week, we want to do some simple stuff, some more advanced stuff, some
 stuff more towards software/programming, some stuff more towards
 scientific computing/Linux.  Most important, we want to show you the
 *spirit and joy of computing*.
