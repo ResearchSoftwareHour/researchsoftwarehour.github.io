@@ -15,14 +15,16 @@ access to high-quality computing mentorship.
 
 <!--more-->
 
-[Radovan Bast](https://bast.fr) is a theoretical chemist turned
-research software engineer.  He's worked in France, Stockholm, and now
+[Radovan Bast](https://bast.fr) is a research software engineer
+with background in theoretical chemistry.
+He's worked in France, Stockholm, and now
 Tromsø at the border between science, software, and computational
-support.  He now works as part of the [Sigma2 metacenter](https://documentation.sigma2.no/)
+support and enjoys supporting multi-disciplinary research.
+He now works as part of the [Sigma2 metacenter](https://documentation.sigma2.no/)
 at the University of Tromsø, Norway, and
 leads the [CodeRefinery](https://coderefinery.org) project.  Richard
-Darst is also a theoretical chemist turned computational research
-specialist and has worked in the United States and Finland.  He now
+Darst is a computational data scientist with background in network science and theoretical chemistry,
+and has worked in the United States and Finland.  He now
 works for [Aalto Scientific Computing](https://scicomp.aalto.fi) at
 Aalto University, Finland.  They met through the [CodeRefinery](https://coderefinery.org) project,
 which teaches best practices in research software.
