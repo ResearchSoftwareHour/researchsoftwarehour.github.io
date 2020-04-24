@@ -23,7 +23,7 @@ support and enjoys supporting multi-disciplinary research.
 He now works as part of the [Sigma2 metacenter](https://documentation.sigma2.no/)
 at the University of Tromsø, Norway, and
 leads the [CodeRefinery](https://coderefinery.org) project.  Richard
-Darst is a computational data scientist, also with background in theoretical chemistry,
+Darst is a computational data scientist with background in network science and theoretical chemistry,
 and has worked in the United States and Finland.  He now
 works for [Aalto Scientific Computing](https://scicomp.aalto.fi) at
 Aalto University, Finland.  They met through the [CodeRefinery](https://coderefinery.org) project,
