@@ -27,7 +27,10 @@ Darst is a computational data scientist with background in network science and t
 and has worked in the United States and Finland.  He now
 works for [Aalto Scientific Computing](https://scicomp.aalto.fi) at
 Aalto University, Finland.  They met through the [CodeRefinery](https://coderefinery.org) project,
-which teaches best practices in research software.
+which teaches best practices in research software, and also
+collaborate on the [Nordic Research Software Engineer community
+project](https://nordic-rse.org) and
+[NordicHPC](https://nordichpc.github.io).
 
 Together, we have decades of experience programming for science,
 mentoring, and teaching computing. We have seen a *crisis of
