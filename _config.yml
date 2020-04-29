@@ -17,13 +17,14 @@ minima:
   social_links:
     #twitter: __radovan
     github: researchsoftwarehour
-    hackmd: "@researchsoftwarehour"
     extra:
       - url: https://twitch.tv/RSHour
         name: "twitch"
       - url: https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf
         name: "video archive"
         icon: youtube
+      - name: hackmd
+        url: "https://hackmd.io/@researchsoftwarehour"
       - url: https://twitter.com/__radovan
         name: "__radovan"
         icon: twitter
