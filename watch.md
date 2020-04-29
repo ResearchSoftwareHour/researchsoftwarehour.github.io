@@ -21,6 +21,7 @@ There are several ways to reach us:
   suggestions for improving reproducibility.
 * Updates/news on **Twitter** [@\_\_radovan](https://twitter.com/__radovan) or
   [@SciCompAalto](https://twitter.com/SciCompAalto).
+* [Video archive](https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf)
 
 
 **This is an open source production.** All material we produce is

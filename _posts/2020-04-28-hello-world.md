@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Hello world
+title:  Hello world, RSH 001
 date:   2020-04-28
 categories:
 excerpt_separator: <!--more-->
@@ -25,3 +25,7 @@ repository](https://github.com/ResearchSoftwareHour/rsh-notes/issues)
 or getting in contact with one of us at
 ([https://people.aalto.fi/richard.darst](https://people.aalto.fi/richard.darst)
 or [https://bast.fr/](https://bast.fr/)).
+
+Videos are posted at the [youtube
+playlist](https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf).
+001 is [here](https://www.youtube.com/watch?v=ZMXaQcFSaW0&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf&index=2&t=0s).
