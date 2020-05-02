@@ -42,6 +42,7 @@ minima:
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
   - jekyll-remote-theme
 # We can switch back to regular theme once >2.5.1 is released
 #theme: minima
