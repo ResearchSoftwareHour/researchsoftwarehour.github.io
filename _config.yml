@@ -11,6 +11,12 @@ show_excerpts: true
 logo: /assets/images/logo-hashbang.png
 logo-twitter: /assets/images/logo-hashbang-big.png
 favicon: /assets/images/logo-hashbang.ico
+header_pages:
+  - about.md
+  - watch.md
+header_pages_extra:
+  - url: https://twitch.tv/RSHour
+    name: twitch.tv/RSHour
 
 minima:
   date_format: "%-d %b %Y"
