@@ -31,7 +31,7 @@ playlist](https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3J
 001 is [here](https://www.youtube.com/watch?v=ZMXaQcFSaW0&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf&index=2&t=0s).
 
 
-### Questions and anwsers from our collaborative document
+### Questions and answers from our collaborative document
 
 - A problem I keep running into: running different kinds of analyses on some dataset, trying things, some things work, others don't. How to keep track of the resulting data files? I always end up with 50 versions and have no idea what version/experiment yielded which result. For code, I have git, but for data (files are like 1GB in size)?
     - Workflow management is a big topic, we'll certainly cover it later - probably a lot.
