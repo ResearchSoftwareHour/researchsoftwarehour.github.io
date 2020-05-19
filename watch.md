@@ -14,7 +14,7 @@ There are several ways to reach us:
 your
 timezone](https://arewemeetingyet.com/Helsinki/2020-05-05/21:30/w/Research%20Software%20Hour#eyJ1cmwiOiJodHRwczovL3R3aXRjaC50di9SU0hvdXIifQ==).
 Or on Linux, run `date --date='TZ="Europe/Helsinki" 21:30 next Tue'`.
-* A **HackMD pad**, which we use to share code, links, etc.
+* A [**HackMD pad**](https://hackmd.io/@researchsoftwarehour/questions), which we use to share code, links, etc.
   * Always write at the very bottom of the hackpad, unless you are
     replying to someone.
   * You may also write questions at the end of the hackpad.
