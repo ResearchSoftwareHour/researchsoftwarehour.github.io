@@ -26,11 +26,13 @@ minima:
     extra:
       - url: https://twitch.tv/RSHour
         name: "twitch"
+        icon: twitch
       - url: https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf
         name: "video archive"
         icon: youtube
       - name: hackmd
         url: "https://hackmd.io/@researchsoftwarehour"
+        icon: hackmd
       - url: https://twitter.com/__radovan
         name: "__radovan"
         icon: twitter
