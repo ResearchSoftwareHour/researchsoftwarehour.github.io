@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="ui stackable grid">
+
+    <div class="eight wide column">
+      <h2 class="ui purple header" id="fonts">Research Software Hour</h2>
+      <hr>
+      <div class="small-buffer">
+        {{ section.content | safe }}
+      </div>
+      <div class="top-buffer">
+      </div>
+    </div>
+
+    <div class="eight wide column">
+      <h2 class="ui purple header" id="fonts">Sessions</h2>
+      <hr>
+
+      <div class="ui purple floating message">
+        <p>
+          We took a summer break but we are <b>back September 22</b>
+	  with season two!
+        </p>
+      </div>
+
+      <a href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf" target="_blank">
+        <button class="ui labeled icon tiny button">
+          <i class="play icon"></i>
+          video archive
+        </button>
+      </a>
+
+      {% set sessions = get_section(path="sessions/_index.md") %}
+
+      <div class="ui divided items">
+        {% for session in sessions.pages %}
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+	            {{ session.date }}
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="{{ session.permalink | safe }}">{{ session.title }}</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+{% endblock content %}
