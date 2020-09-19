@@ -1,6 +1,14 @@
 # The URL the site will be built for
 base_url = "https://researchsoftwarehour.github.io"
 
+title = "Research Software Hour"
+
+description = '''
+Research Software Hour is a online show discussing scientific
+computing and research software designed to provide the informal
+kind of skills you don't learn academically.
+'''
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 
@@ -24,9 +32,3 @@ navigation = [
 ]
 
 twitter_image = "https://researchsoftwarehour.github.io/img/logo-hashbang-big.png"
-
-description = '''
-Research Software Hour is a online show discussing scientific
-computing and research software designed to provide the informal
-kind of skills you don't learn academically.
-'''
