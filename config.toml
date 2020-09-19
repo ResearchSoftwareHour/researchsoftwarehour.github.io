@@ -23,7 +23,7 @@ navigation = [
   { name = "twitch.tv/RSHour", path = "https://twitch.tv/RSHour" }
 ]
 
-twitter_image = "https://researchsoftwarehour.github.io/assets/images/logo-hashbang-big.png"
+twitter_image = "https://researchsoftwarehour.github.io/img/logo-hashbang-big.png"
 
 description = '''
 Research Software Hour is a online show discussing scientific
