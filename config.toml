@@ -4,9 +4,8 @@ base_url = "https://researchsoftwarehour.github.io"
 title = "Research Software Hour"
 
 description = '''
-Research Software Hour is a online show discussing scientific
-computing and research software designed to provide the informal
-kind of skills you don't learn academically.
+Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don't learn academically.
 '''
 
 # Whether to automatically compile all Sass files in the sass directory
