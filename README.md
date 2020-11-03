@@ -8,8 +8,8 @@ repository for now.
 ### How the GitHub Pages part works
 
 The website is built using [Zola](https://www.getzola.org/).
-Note that the `master` branch is generated on each push/merge to `source`
-branch, and should not be manually modified.
+Note that the `gh-pages` branch is generated on each push/merge to `main`
+branch. The branch `gh-pages` should not be manually modified.
 
 
 ### Local preview
