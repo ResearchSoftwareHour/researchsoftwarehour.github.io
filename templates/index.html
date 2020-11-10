@@ -46,6 +46,7 @@
                 <div class="twelve wide column">
                   <p>
                     <a href="{{ session.permalink | safe }}">{{ session.title }}</a>
+                    {% if session.video %}[<a href="{{session.video | safe}}">video</a>]{% endif %}
                   </p>
                 </div>
               </div>
