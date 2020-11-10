@@ -2,9 +2,9 @@
 
 {% block content %}
   <h1>{{ page.title }}</h1>
-  <i>{{page.extra.desc}}</i>
+  {% if page.extra.desc %}<i>{{page.extra.desc}}</i>{% endif %}
 
-  <p><a href="{{page.extra.video}}">Video <i class="youtube red icon"></i></a></p>
+  {% if page.extra.video %}<p><a href="{{page.extra.video}}">Video <i class="youtube red icon"></i></a></p>{% endif %}
 
   <h2>Collaborative notes taken during the session</h2>
 
