@@ -18,16 +18,19 @@ Follow the Twitter streams
 [@SciCompAalto](https://twitter.com/SciCompAalto) for updates.
 
 
-## 2021 plan
+## Plan for 2021
 
-Starting on 04.feb.2021, we will have a show every other week.  The
+Starting from **Feb. 4, 2021**, our plan is to have a show every other week.  The
 off weeks may have more advanced but less planned shows.  We plan to
 go through the following topics, roughly from top to bottom (but we
 will readjust as necessary):
 
-* Why is software, data, etc important (zen of scicomp?)
-* Shell intro
-* Data preparation and release
+* **Feb. 4**: Why is software, data, etc important (the Zen of scientific computing)
+* **Feb. 18**: Working in shells and terminals
+* **Mar. 4**: Data preparation and release
+
+Later:
+
 * Our favourite Python libraries
 * How to manage code on a research-group level (for group leaders, how to prevent everyone from doing their own things)
 * How to use SSH and GPG keys (we all need them sooner or later, it is "never" taught, and documentation is often not adapted to non-experts)
