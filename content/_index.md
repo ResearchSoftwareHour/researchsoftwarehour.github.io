@@ -28,10 +28,10 @@ will readjust as necessary):
 * **Feb. 4**: Why is software, data, etc important (the Zen of scientific computing)
 * **Feb. 18**: Working in shells and terminals
 * **Mar. 4**: Data preparation and release
+* **Mar. 25**: Our favourite Python libraries
 
 Later:
 
-* Our favourite Python libraries
 * How to manage code on a research-group level (for group leaders, how to prevent everyone from doing their own things)
 * How to use SSH and GPG keys (we all need them sooner or later, it is "never" taught, and documentation is often not adapted to non-experts)
 * Licensing and sharing: what do you need to know in practice (e.g. How to agree on code and licensing)
