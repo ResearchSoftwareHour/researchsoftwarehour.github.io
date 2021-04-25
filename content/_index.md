@@ -18,9 +18,7 @@ Follow the Twitter streams
 
 ## Upcoming shows
 
-Thursday, 22 April at 15:00 CEST, we will have a demo on OBS (Open
-Broadcaster Software) for teaching purposes.  This is more like an
-internal demo that is open to all, than a purpose-built show.
+None yet scheduled.
 
 
 ## Other future topics
