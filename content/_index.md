@@ -3,7 +3,7 @@
 
 **Research Software Hour** is an online stream/show about scientific computing and
 research software.  It is designed to provide the skills typically picked up
-via informal networks: each week, we do some combination of exploring new
+via informal networks: each ~2 weeks, we do some combination of exploring new
 tools, analyzing and improving someone's research code, and discussion.
 
 Watchers can take part and contribute code to us which we analyze and discuss
