@@ -18,7 +18,7 @@ Follow the Twitter streams
 
 ## Upcoming shows
 
-None yet scheduled.
+**2021-05-06**: Tips and tricks and tools to make Git conflict resolution easier.
 
 
 ## Other future topics
