@@ -18,7 +18,8 @@ Follow the Twitter streams
 
 ## Upcoming shows
 
-**2021-05-06**: Tips and tricks and tools to make Git conflict resolution easier.
+**2021-05-06**, 20:30 CEST: Tips and tricks and tools to make Git conflict
+resolution easier.  [Convert 20:30 to your timezone](https://arewemeetingyet.com/Stockholm/2021-05-06/20:30/w/Research%20Software%20Hour#eyJ1cmwiOiJodHRwczovL3R3aXRjaC50di9SU0hvdXIifQ==)
 
 
 ## Other future topics
