@@ -47,9 +47,13 @@
                 <div class="twelve wide column">
                   <p>
                     <a href="{{ session.permalink | safe }}">{{ session.title }}</a>
+                    {% if session.extra.desc %}
+                      <br>
+                      <small>{{ session.extra.desc }}</small>
+                    {% endif %}
                     {% if session.extra.video %}
-                    {% if session.extra.desc %}<small>{{ session.extra.desc }}</small>{% endif %}
-                    <a href="{{ session.extra.video | safe }}"><i class="youtube red icon"></i></a>{% endif %}
+                      <a href="{{ session.extra.video | safe }}"><i class="youtube red icon"></i></a>
+                    {% endif %}
                   </p>
                 </div>
               </div>
