@@ -18,7 +18,7 @@ Follow the Twitter streams
 
 ## Upcoming shows
 
-**2021-05-20**, 20:30 CEST: The best questions from the recent CodeRefinery workshop.  [Convert 20:30 to your timezone](https://arewemeetingyet.com/Stockholm/2021-05-06/20:30/w/Research%20Software%20Hour#eyJ1cmwiOiJodHRwczovL3R3aXRjaC50di9SU0hvdXIifQ==)
+We will be back in September.
 
 
 ## Other future topics
