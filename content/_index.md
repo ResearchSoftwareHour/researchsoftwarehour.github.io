@@ -9,7 +9,8 @@ tools, analyzing and improving someone's research code, and discussion.
 Watchers can take part and contribute code to us which we analyze and discuss
 on stream.
 
-Since April 2021, we stream whenever we have an interesting topic.
+In Autumn 2021, we stream Wednesdays at 14:00
+Central European time / 15:00 East Europe time. [Convert 14:00 to your timezone](https://arewemeetingyet.com/Stockholm/2021-09-08/14:00/w/Research%20Software%20Hour#eyJ1cmwiOiJodHRwczovL3R3aXRjaC50di9SU0hvdXIifQ==)
 
 Follow the Twitter streams
 [@\_\_radovan](https://twitter.com/__radovan) or
@@ -18,7 +19,10 @@ Follow the Twitter streams
 
 ## Upcoming shows
 
-We will be back in September.
+* 8.september: "How computers work" - practical lessons for a new scientist
+* 22.september: How to organize software/data in a new research group
+* 6.october: Intro to GitHub
+* 20.october: Lessons from starting a RSE group at a university.
 
 
 ## Other future topics
