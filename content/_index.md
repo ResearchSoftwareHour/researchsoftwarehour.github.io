@@ -19,10 +19,10 @@ Follow the Twitter streams
 
 ## Upcoming shows
 
-* 8.september: "How computers work" - practical lessons for a new scientist
-* 22.september: How to organize software/data in a new research group
-* 6.october: Intro to GitHub
-* 20.october: Lessons from starting a RSE group at a university.
+* September 8: Computers for research 101: The essential course that everyone skipped
+* September 22: How to organize software/data in a new research group
+* October 6: Intro to GitHub
+* October 20: Lessons from starting a RSE group at a university.
 
 
 ## Other future topics
