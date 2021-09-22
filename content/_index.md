@@ -19,10 +19,10 @@ Follow the Twitter streams
 
 ## Upcoming shows
 
-* September 8: Computers for research 101: The essential course that everyone skipped
-* September 22: How to organize software/data in a new research group
-* October 6: Intro to GitHub
+* October 6: Working with ssh
 * October 20: Lessons from starting a RSE group at a university.
+* November 3: Intro to GitHub
+* November 17: How to organize software/data in a new research group
 
 
 ## Other future topics
