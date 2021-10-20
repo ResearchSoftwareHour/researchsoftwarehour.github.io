@@ -20,7 +20,7 @@ Follow the Twitter streams
 ## Upcoming shows
 
 * October 6: Intro to GitHub
-* October 20: Working with ssh
+* ~~October 20: Working with ssh~~ postponed
 * November 3: Lessons from starting a RSE group at a university
 * November 17: How to organize software/data in a new research group
 
