@@ -19,14 +19,9 @@ Follow the Twitter streams
 
 ## Upcoming shows
 
-* October 6: Intro to GitHub
-* ~~October 20: Working with ssh~~ postponed
-* November 3: Lessons from starting a RSE group at a university
-* November 17: How to organize software/data in a new research group
-
-
-## Other future topics
-
+* Working with SSH
+* Lessons from starting a RSE group at a university
+* How to organize software/data in a new research group
 * How to manage code on a research-group level (for group leaders, how to prevent everyone from doing their own things)
 * How to use SSH and GPG keys (we all need them sooner or later, it is "never" taught, and documentation is often not adapted to non-experts)
 * Licensing and sharing: what do you need to know in practice (e.g. How to agree on code and licensing)
