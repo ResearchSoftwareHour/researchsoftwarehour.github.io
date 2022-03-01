@@ -3,18 +3,20 @@
 
 **Research Software Hour** is an online stream/show about scientific computing and
 research software.  It is designed to provide the skills typically picked up
-via informal networks: each ~2 weeks, we do some combination of exploring new
-tools, analyzing and improving someone's research code, and discussion.
+via informal networks: every few weeks, we do some combination of exploring new
+tools, analyzing and improving someone's research code, and
+discussion.  Think of it as the "fireside chat" of scientific computing.
 
-Watchers can take part and contribute code to us which we analyze and discuss
-on stream.
+Watchers can take part by suggesting ideas, contribute code or
+problems to discuss on stream, or even joining to directly be a part
+of the show.
 
-In Autumn 2021, we stream **Wednesdays at 14:00
-Central European time / 15:00 East Europe time**. [Convert 14:00 to your timezone](https://arewemeetingyet.com/Stockholm/2021-09-08/14:00/w/Research%20Software%20Hour#eyJ1cmwiOiJodHRwczovL3R3aXRjaC50di9SU0hvdXIifQ==)
+We hope to resume in Spring 2022.
+<!--In Autumn 2021, we stream **Wednesdays at 14:00
+Central European time / 15:00 East Europe time**. [Convert 14:00 to your timezone](https://arewemeetingyet.com/Stockholm/2021-09-08/14:00/w/Research%20Software%20Hour#eyJ1cmwiOiJodHRwczovL3R3aXRjaC50di9SU0hvdXIifQ==)-->
 
-Follow the Twitter streams
-[@\_\_radovan](https://twitter.com/__radovan) or
-[@SciCompAalto](https://twitter.com/SciCompAalto) for updates.
+Follow the CodeRefinery Twitter
+[@coderefine](https://twitter.com/coderefine) for announcements.
 
 
 ## Upcoming shows

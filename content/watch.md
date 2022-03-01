@@ -28,8 +28,7 @@ There are several ways to reach us:
   We would especially like contributed research code (open
   licenseable), which we can analyze on-stream and give (constructive)
   suggestions for improving reproducibility.
-- Updates/news on **Twitter** [@\_\_radovan](https://twitter.com/__radovan) or
-  [@SciCompAalto](https://twitter.com/SciCompAalto).
+- Updates/news on **Twitter** [@coderefine](https://twitter.com/coderefine).
 - [Video archive](https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf)
 
 
