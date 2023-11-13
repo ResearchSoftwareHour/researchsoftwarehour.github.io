@@ -12,11 +12,6 @@ problems to discuss on stream, or even joining to directly be a part
 of the show.
 
 We hope to resume in Spring 2022.
-<!--In Autumn 2021, we stream **Wednesdays at 14:00
-Central European time / 15:00 East Europe time**. [Convert 14:00 to your timezone](https://arewemeetingyet.com/Stockholm/2021-09-08/14:00/w/Research%20Software%20Hour#eyJ1cmwiOiJodHRwczovL3R3aXRjaC50di9SU0hvdXIifQ==)-->
-
-Follow the CodeRefinery Twitter
-[@coderefine](https://twitter.com/coderefine) for announcements.
 
 
 ## Upcoming shows
