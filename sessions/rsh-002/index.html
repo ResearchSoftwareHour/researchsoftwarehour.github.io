@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 2: Code review and code dependencies" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 2: Code review and code dependencies</h1>
+  
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=9CKf8_HwANQ&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <ul>
+<li>
+<p>Zenodo in google scholar?: https://github.com/openjournals/brief-ideas/issues/132#issuecomment-335700342</p>
+</li>
+<li>
+<p>a good topic to discuss at another hour  would be creating a static website with e.g. pelican/hugo and publish on github/gitlab pages</p>
+<ul>
+<li>rkdarst: nice idea!  The &quot;easy one&quot; is using Jekyll + github pages.  I also tested one using pelican + github actions + github pages.  Which ones are you most interested in?</li>
+<li>rkdarst: I guess we can start with jekyll+github pages, then do the more davanced one in a later episode.</li>
+<li>cycomanic: I found hugo and pelican actually nicer to use than jekyll, but any one would be good.</li>
+<li>rkdarst: This was a test I did, using github actions + sphinx, could be adapted to other things too (very primative): https://github.com/rkdarst/sphinx-actions-test</li>
+</ul>
+</li>
+<li>
+<p>Table of contents for Markdown: https://github.com/ekalinin/github-markdown-toc</p>
+</li>
+<li>
+<p>a good link on how to write good commit messages: https://chris.beams.io/posts/git-commit/</p>
+</li>
+<li>
+<p>Maybe show how to alert some specific user to a pull request/issue (from Twitch chat)</p>
+<ul>
+<li>You can use &quot;@&quot; mentions to have GitHub/Gitlab notify someone about a conversation, issue, pull request, etc.</li>
+</ul>
+</li>
+<li>
+<p>&quot;Some bigger teams have templates for pull requests so that you have to explain what you did, what should be reviewed like Richard just said&quot;</p>
+</li>
+<li>
+<p>what are your thoughts on black/yapf talking about autoformat? I have not seen a solution that does not mess up math code</p>
+<ul>
+<li>If you work on a project that has a long and valuable Git history that hasn't used Black, it can destroy the value of the history (or make it much more difficult to follow)</li>
+</ul>
+</li>
+<li>
+<p>#pylint: disable=unused-argument</p>
+</li>
+<li>
+<p>autoformat is the prime suspect for pre-commit</p>
+</li>
+<li>
+<p>ReproHack: https://reprohack.github.io/reprohack-hq/</p>
+</li>
+<li>
+<p>How does using a requirements.txt relate to using setuptools and defining dependencies via install_requires in the setup?</p>
+<ul>
+<li>We got this nice follow-up: https://github.com/ResearchSoftwareHour/rsh-notes/issues/21</li>
+</ul>
+</li>
+<li>
+<p>have you guys used poetry? (supposedly the next version of packaging and dependency management) https://python-poetry.org/</p>
+<ul>
+<li>Radovan: I haven't started using it yet, but have used Pipenv. See also good suggestions in https://github.com/ResearchSoftwareHour/rsh-notes/issues/21</li>
+</ul>
+</li>
+<li>
+<p>question: do you document your hints (the textual/visual formatting hints)? to others?</p>
+<ul>
+<li>http://rkd.zgib.net/wiki/Python/Style</li>
+<li>listener: great talk about Python formatting: https://www.youtube.com/watch?v=wf-BqAjZb8M</li>
+</ul>
+</li>
+<li>
+<p>I've set up a Vim keybinding to toggle my linter to care about pep8 formatting or not: https://gist.github.com/wmvanvliet/4aa309c2c3e7228060122e7beda14ece with my own scripts, I don't care about pep8. For public packages, I do.</p>
+</li>
+<li>
+<p>why not just install all the main libraries as system libs and then use pip install --user ? Also PYTHONPATH!</p>
+<ul>
+<li>I think virtualenvironments encourage to code to specific versions much more than general version</li>
+</ul>
+</li>
+<li>
+<p>Could you explain in a next session about git hooks?</p>
+<ul>
+<li>Thanks for the suggestion!</li>
+</ul>
+</li>
+<li>
+<p>Could you discuss git bare repos?</p>
+<ul>
+<li>It is basically everything &quot;below&quot; the <code>.git/</code> data you see in a regular repository - no &quot;working directory&quot; checked out files</li>
+</ul>
+</li>
+<li>
+<p>Dependencies for C++ would be very interesting.</p>
+<ul>
+<li>please talk about repositories in C++ or pip for C++ equivalent?</li>
+<li>using CMake to handle dependencies?
+<ul>
+<li>Thanks for the suggestion!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>https://xkcd.com/1987/</p>
+</li>
+<li>
+<p>Can you post the link to reprohacks (sp?)</p>
+<ul>
+<li>https://reprohack.github.io/reprohack-hq/</li>
+</ul>
+</li>
+<li>
+<p>Git shallow clone could also be interesting to discuss</p>
+<ul>
+<li>you can specify depth as well</li>
+<li>Thanks for the suggestion!</li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 15: Containers for science" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 15: Containers for science</h1>
+  
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=DYA-b6ca7jM&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="icebreaker-question">Icebreaker question</h3>
+<p>When have you experienced some difficult to install software? How did you solve it?</p>
+<ul>
+<li>Just this/last week. I did not even manage to understand the instructions and failed with pip3. I managed to create a virtual environment but then the pip3 command did not seem to work. These choices --upgrade --user  caused problems for me.
+https://pypi.org/project/crispy/
+Second option, created a conda env and installed the Python modules. Still no improvement. Finally, I found that a .dmg was provided. Will go for this in the next try.
+A friend of mine is doing a PhD in computer science and struggles still sometimes with installations.</li>
+<li>When trying to install our own research software on older OS:es (testing portability). The software relies on much newer versions of packages (everything from CMake to Python packages) than those OS:es can access through package managers. In some cases, we managed to solve it by manually compiling everything, in other cases not. Installation instructions had to be updated with a lot of hacks for these cases.</li>
+<li>When trying to install a software on Windows that required C,C++ build toolchain, lack of instructions made it difficult. Switched to Windows subsystem for Linux for now. Another instance was when the instructions were unclear and to make matters worse, the setup.py was broken, not yet fixed.</li>
+</ul>
+<h3 id="correction">Correction</h3>
+<p>A question came up whether Singularity images can be made executable and my answer there after a quick test was wrong
+and one of the watchers has sent a clarification which is amazing:</p>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>Got puzzled by that executable singularity container remark someone did.
+</span><span>
+</span><span>Tried it out here and I&#39;m amazed that it actually works:
+</span><span>
+</span><span># cat Singularity
+</span><span>BootStrap: docker
+</span><span>From: alpine:edge
+</span><span>
+</span><span>%runscript
+</span><span>    /bin/echo &quot;$@&quot;
+</span><span>
+</span><span>and after:
+</span><span>
+</span><span># singularity build singularity.img Singularity
+</span><span>...
+</span><span># chmod +x singularity.img
+</span><span>
+</span><span># ./singularity.img Hello world
+</span><span>Hello world
+</span><span>
+</span><span>Then something else I found while googling:
+</span><span>
+</span><span># cat Singularity
+</span><span>BootStrap: docker
+</span><span>From: alpine:edge
+</span><span>
+</span><span>%post
+</span><span>    apk --no-cache add vim python3
+</span><span>
+</span><span>%runscript
+</span><span>    /usr/bin/$SINGULARITY_NAME &quot;$@&quot;
+</span><span>
+</span><span># l
+</span><span>lrwxrwxrwx   1 root root       15 Nov 19 22:05 python3 -&gt; singularity.img
+</span><span>-rw-r--r--   1 root root      120 Nov 19 22:05 Singularity
+</span><span>-rwxr-xr-x   1 root root 22192128 Nov 19 22:05 singularity.img
+</span><span>lrwxrwxrwx   1 root root       15 Nov 19 22:02 vim -&gt; singularity.img
+</span><span>
+</span><span># ./python3 --version
+</span><span>Python 3.8.6
+</span><span>
+</span><span># ./vim --version | head -n1
+</span><span>VIM - Vi IMproved 8.2 (2019 Dec 12, compiled Nov 19 2020 05:07:05)
+</span><span>
+</span><span>So $SINGULARITY_NAME becomes the name of the symlink (or the container).
+</span><span>This is blew my mind, basically drop-in binary replacements.
+</span></code></pre>
+<h3 id="questions-comments">Questions/comments</h3>
+<ul>
+<li>
+<p>Is it so difficult to write good installation instructions?</p>
+<ul>
+<li>apparently so, it's one of the most annoying parts of me supporting other researchers
+<ul>
+<li>As even you as a more advanced RSE has to troubleshout, figure it out?</li>
+<li>it's harder than I would like... I can usually figure it out, but we need everyone to be able to, too.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Ten simple rules for writing Dockerfiles for reproducible data science: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008316</p>
+</li>
+<li>
+<p>Source code is to a compiled code, as container recipe file is to the container image</p>
+</li>
+<li>
+<p>Not really a question, but I like .dmg files on MacOSX. I unpack them and drag the app into any folder. Done. Or they come just with a little installation program, done.</p>
+<ul>
+<li>Sure, but you have .exe and .msi files for Windows.</li>
+<li>The main question here, I think, is how much is included in the installation?  Does it depend on the OS much, so that it can only be installed on a few OS versions?  MacOS is a very controlled environment so they tend to have fewer problems.</li>
+<li>Also https://flatpak.org/ and https://appimage.org/ both are sort of .dmg or .App for Linux</li>
+<li>yes!</li>
+</ul>
+</li>
+<li>
+<p>Newbie question, but: which container technology should I use and why? Is there a handy comparison chart somewhere?</p>
+<ul>
+<li>We'll discuss this later. Most popular is Docker. On supercomputers, most popular seems to be Singularity.</li>
+</ul>
+</li>
+<li>
+<p>To what extent is Docker containers / Kubernetes used in university HPC environments?</p>
+<ul>
+<li>we will come back to that and show something. mostly used using Singularity, which can use/import Docker images.</li>
+</ul>
+</li>
+<li>
+<p>What is the advantage of these containers? Is this software not available via conda, for example? Create a virtual env and install the modules.</p>
+<ul>
+<li>great question! we will discuss this: advantage is that if there is dependency on or &quot;interference&quot; with system libraries, then these are well defined
+<ul>
+<li>:+1:</li>
+</ul>
+</li>
+<li>we will hopefully also discuss drawbacks later</li>
+</ul>
+</li>
+<li>
+<p>Is running graphical user interfaces a good use of Docker? In general it seems like there's quite a lot of trickery to make it work reliably? More useful for running services, no?</p>
+<ul>
+<li>Yeah, I think that command line stuff or services is more typical.  But it's still quite useful for graphical stuff, if you can't do anything else!</li>
+</ul>
+</li>
+<li>
+<p>Containers often bundle many things without consideration for licensing. Are there any recommendations to handle the explosion of different licenses you have to consider once you are bundling a large fraction of an operating system in a container? I guess similar question for other &quot;virtualization solutions&quot; and images (VMWare, VirtualBox)</p>
+<ul>
+<li>This is a good question, and I've seen some issues about this with nvidia libraries.  I have a feeling it's sort of a wild west out there.</li>
+</ul>
+</li>
+<li>
+<p>Anne, thank you for the encouragement! Thanks for telling us your first baby steps. It looks complicated. Does one have to know a lot of Linux?</p>
+</li>
+<li>
+<p>On the topic of layers, what are the current recommendations to handle them? I recently read about a new solution to avoid pages of instructions terminating with <code>\</code> or <code>&amp;&amp;</code> but I don't understand this.</p>
+<ul>
+<li>I haven't heard of this, do you have a link to the recommendation?
+<ul>
+<li>I think it was <a href="https://docs.docker.com/develop/develop-images/multistage-build/">Multi-stage builds</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Any experiences with using Ansible for the recipe part instead of Dockerfiles? From what I understand it can produce Docker images, while also having the ability to deploy via SSH and other options.</p>
+<ul>
+<li>Good question, I know it can be but I don't have any other extra advice on this.</li>
+<li>I think they are different technologies with similar purposes. With docker the container is the final result and the Dockerfile the way to get there. With ansible the recipe (roles?) is more about creating entire systems from scratch (e.g. in the cloud) and having an entire computer configured.</li>
+</ul>
+</li>
+<li>
+<p>In the example on screen, won't line 8 <code>apt-get update</code> change very often?</p>
+<ul>
+<li>It caches each layer based on the text of the layer.  So while the results may be different each time it runs, docker won't realize that, and will leave it cached until you change something else.</li>
+</ul>
+</li>
+<li>
+<p>From what I understand, the recommendation is to not have apt update by itself because it will be cached? If we want it to update on each build it should be RUN apt update &amp;&amp; apt install ... &amp;&amp; apt clean to force the update.</p>
+<ul>
+<li>Yep, I've seen that more often.  Also then the package information isn't saved in a layer.</li>
+</ul>
+</li>
+<li>
+<p>Any advice for automatic cleanup after unsuccessful Docker builds or long unused images? Docker images fill up the hard drive really fast.</p>
+<ul>
+<li><code>docker image prune</code> and <code>docker container(s?) prune</code></li>
+<li>also the <code>--rm</code> option that was mentioned</li>
+</ul>
+</li>
+<li>
+<p>But the docker file does not strictly define the result. Those package repos added presumably change over time.</p>
+<ul>
+<li>yes!!!! Exactly, sort of related to two questions above.</li>
+<li>I wish I could pin PyPI/conda/apt to &quot;install latest version available from this date&quot;, so I can pin to a certain time, without having to pin all the versions.</li>
+<li>This is an interesting point from a reproducability aspect. Would you recommend long term storage of the built binary Docker images (which includes everything)??</li>
+</ul>
+</li>
+<li>
+<p>Do you not mess up your system with such misbehaving Docker installations? AFAI understand, it would install all over the place things into the system, or not just in a controlled virt env</p>
+<ul>
+<li>One of the points of docker is that it's strictly isolated from the system (everything is in the layers only), so there is little risk of that.  But there could be security problems that allow a malicious container to escape (but that would be a bug - people assume containers stay contained)
+<ul>
+<li>Thank you, I did not know.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>I arrived late so maybe you already talked about this. But many sites disallow pure docker (but supports singularity or shifter). But it's typically not that much of added hassle since singularity can import directly from docker(hub)</p>
+<ul>
+<li>True, we haven't gotten to a different runtimes yet, but we should mention this.</li>
+</ul>
+</li>
+<li>
+<p>Often the hurdle I see in using Docker container is the fact that the size of the images scales quite poorly. For example, a simple opencv based image resizing application (4 lines of code) will end up in a ~1.2 GB of image size. The image size grows bigger if you wish to have common Linux distributions as base image and then some libraries on top of it. So, if someone is working on developing and distributing a software library, Docker may not be a good choice for distributing it as it may not make for a good dev environment for potential contributors. However, it can be a good option to consider if one is developing a script/black box kind of software that the end user will only execute. Would like to hear your thoughts on this.</p>
+<ul>
+<li>Good point, we were discussing something like this before the show.  We'll bring it up by the end, thanks for the idea.</li>
+<li>Great!, will stay tuned</li>
+<li>But I agree with the sentiment of what you said, I think it's a good analysis.</li>
+</ul>
+</li>
+<li>
+<p>Are there any open-source registries as alternative to docker-hub? Like if I have sensitive data in images and don't want to host them in a public registry.</p>
+<ul>
+<li>There are some, we use Portus but I don't know much about it.</li>
+<li>If you could, I would try to separate the sensitive data from from the image</li>
+</ul>
+</li>
+<li>
+<p>It's really easy to run your own registry as a Docker container, to be independent on DockerHub etc. :)</p>
+<ul>
+<li>good point :-) e.g. dockerized singularityhub
+<ul>
+<li>Got a link/reference?
+<ul>
+<li>this is what we are trying to set up for Norwegian high-perf computing users, need to find some example ...</li>
+</ul>
+</li>
+<li>I'm running <a href="https://hub.docker.com/_/registry">Docker registry</a> using a simple docker-compose file which is automatically picked up by <a href="https://traefik.io/traefik/">Traefik</a> to be served using HTTPS.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Anyone paying for hosting your large files can stop doing it (for free)</p>
+<ul>
+<li>yes!  like Dockerhub just started doing. Biocontainers and quay.io?</li>
+<li>Which is why I found it a bit weird when people would recommend docker to make things reproducible, without thinking much about storage (other than dockerhub)</li>
+</ul>
+</li>
+<li>
+<p>From a reproducibility point of view, since the underlying operating system is always changing, how to you handle this? How do you version such image?</p>
+<ul>
+<li>Images can have tags, so you build on (<code>FROM</code>) a specific image tag, so it won't change too much.  Of course, what if repositories or package versions change?
+<ul>
+<li>Yes... that apt-get update line... if I build from the same recipe what guarantee do I have someone else will be able to reproduce the same container?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>alpine</code> vs <code>ubuntu</code> vs <code>centos</code> as base images. <code>alpine</code> is popular for being small but uses a different <code>C</code> runtime (musl libc). Any experience with incompatibilities while changing or using different bases?</p>
+<ul>
+<li>I haven't had this hit me, but it certainly could be a problem.  For a microservice, I think alpine makes sense, for a user environment I'd start with Ubuntu or similar.</li>
+</ul>
+</li>
+<li>
+<p>You can use traditional software build systems (spack as an example) and put the result in a docker image</p>
+<ul>
+<li>neat, have you done this?</li>
+</ul>
+</li>
+<li>
+<p>You mentioned miniconda within Docker containers. Any recommendations for using/activating environments in this setting? Can be a little cumbersome since <code>conda activate</code> requires a shell...</p>
+<ul>
+<li>I usually use conda activate b</li>
+<li>conda is almost a container technology already. By that I mean it's almost a complete linux distribution in itself (where the packages are like layers)</li>
+<li>Ran into <a href="https://pythonspeed.com/articles/activate-conda-dockerfile/">this kind of challenges</a></li>
+<li>conda activate doesn't require login shell, but does require shell be activated. Ofter this is done with <code>conda init</code>, but that makes permanent changes and require login shell.  I recommend to people <code>source $conda_path/bin/activate</code>, even though that seems less recommended.
+<ul>
+<li>I don't think the latter works anymore with latest conda. &quot;source activate ENVNAME&quot; is an alternative
+<ul>
+<li>I see it still works if you install the <code>conda</code> in the environment you are sourcing.  Then I think you don't have to go through the base environment first (can someone correct?)</li>
+</ul>
+</li>
+<li>Doing &quot;conda init bash&quot; has broken a gazillion things for people on our systems (man RT ticket...)
+<ul>
+<li>+1, it feels dirty (or at least risky) to me</li>
+<li><code>conda config --set auto_activate_base false</code> : this command disables automatic conda 'base' environment activation upon launching a terminal</li>
+<li>+1</li>
+</ul>
+</li>
+<li>This was the solution I ended up with. The problem is <code>conda init</code> only affects interactive sessions like <code>docker run -it ubuntu bash</code>, but if there's an entrypoint it will not source .bashrc and hence conda things won't be available.</li>
+</ul>
+</li>
+<li>The link seems like a good solution (I didn't know of <code>conda run</code>, that will solve a lot of problems!).  It is indeed a difficult issue, I wish conda wasn't so focused on interactive work.  I need to investigate more.</li>
+</ul>
+</li>
+<li>
+<p>can you <code>chmod +x singularity.img &amp;&amp; ./singularity.img</code> ?</p>
+<ul>
+<li>We tested, and it seems like no</li>
+<li>Yeah, won't work, think of it as a filesystem image or compressed archive of files.</li>
+</ul>
+</li>
+<li>
+<p>Where do you get help when you are stuck with Docker or Singularity? Is there something like stackoverflow for them?</p>
+<ul>
+<li>Docker forums is decently active</li>
+<li>I think this is a good case for Research Software Engineers to help people.</li>
+</ul>
+</li>
+<li>
+<p>Drawbacks/problems with containers</p>
+<ul>
+<li>binaries do not always work the same way on different machines (breaking that ideal encapsulated behavior).</li>
+<li>containers can become stale (contain long known problems). Like security issues. See for example Redhats container health checks.</li>
+<li>you can have an old image that &quot;works&quot; but it's no longer possible to re-create it.</li>
+<li>re-creating a container would ideally make the same image as before but it's easy to make Dockerfiles that are (way too) dynamic</li>
+<li>There are for example OpenFOAM containers that require very close matching openmpi outside of the container causing issues (MPI and containers can be painful)</li>
+<li>They can get large, very large!</li>
+</ul>
+</li>
+</ul>
+<h3 id="ideas-for-next-week">Ideas for next week</h3>
+<ul>
+<li>Maybe some topics for beginners? Or would it be too boring for the more advanced users in this community? Edit: I don't know really. I am a learner.
+[Comment: I think the current level is good, understandable for beginners but still advanced enough to be useful]
+I disagree a bit, but nevermind. I will just ask questions.</li>
+<li>Powertools such as screen/tmux maybe? others?</li>
+<li>Cloud or not cloud?</li>
+<li>Kubernetes? Quantum computing?</li>
+<li>What shell was Radovan using? colors!!!
+<ul>
+<li>fish with customized oh-my-fish, customization: https://github.com/bast/config/tree/master/omf</li>
+</ul>
+</li>
+<li>Debugging with an IDE? Breakpoints? Code inspection? Still fear the segfault.</li>
+<li>Debugging parallel software with DDT or totalview?</li>
+<li>Debugging in general
+<ul>
+<li>strategies</li>
+<li>printf style</li>
+<li>deubgger features</li>
+<li>runtime checks and trace collection</li>
+</ul>
+</li>
+<li>How to speed up software? Data analysis in real time? The data arrives on a stream and needs to be analysed as fast as possible.</li>
+</ul>
+<p>Decision for next week: <strong>debugging</strong>.  Please send us stuff that doesn't work!</p>
+<ul>
+<li>send stuff here: https://github.com/ResearchSoftwareHour/rsh-notes/issues</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

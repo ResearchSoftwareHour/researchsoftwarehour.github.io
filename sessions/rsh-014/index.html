@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 14: How to tame the cluster" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 14: How to tame the cluster</h1>
+  <i>You&#x27;ve got code, you&#x27;ve got the cluster.  Now we connect them</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=5HN9-MW7Tw8&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="icebreaker-question">Icebreaker question</h3>
+<p>Something you know/use now on a supercomputer that you wish somebody had told/shown you years ago:</p>
+<ul>
+<li>documentation</li>
+<li>safe settings for bash scripts to stop at undefined variables</li>
+<li>submit scripts don't have to be in bash</li>
+<li>how to use scp</li>
+<li>minimalism (minimum environment, minimum options/specification, no cargo culting)</li>
+<li>containers, venv and other means of isolation</li>
+<li>messy setup -&gt; non-reproducible mess</li>
+</ul>
+<h3 id="questions">Questions</h3>
+<ul>
+<li>Maybe I missed it, but do you check sometimes the different nodes if each of them is used?
+<ul>
+<li>The SLURM scheduler should only be giving you an open node to run your tasks.</li>
+</ul>
+</li>
+<li>Does this cluster have hyperthreading enabled?
+<ul>
+<li>This is really good to check.</li>
+</ul>
+</li>
+<li>Is it always like that, #cpus=#threads ?
+<ul>
+<li>for purely shared-memory jobs like this one, yes</li>
+<li>but for hybrid OpenMP+MPI calculations</li>
+</ul>
+</li>
+<li>--mem vs --mem-per-cpu
+<ul>
+<li>First allocates memory per node, latter allocates memory per core</li>
+</ul>
+</li>
+<li>How do you determine whether you should use OpenMP/MPI or array jobs for your task?
+<ul>
+<li>If the tasks are independent and don't need to communicate, array jobs is simpler and does not require to change the code. MPI might be good if the tasks need to communicate. Hybrid OpenMP/MPI might be good if we want to use shared memory but at the same time go beyond one node.</li>
+</ul>
+</li>
+</ul>
+<h3 id="references">References</h3>
+<ul>
+<li>https://github.com/AaltoSciComp/hpc-examples</li>
+<li>MPI example can be found here: https://aaltoscicomp.github.io/python-for-scicomp/parallel/#mpi</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

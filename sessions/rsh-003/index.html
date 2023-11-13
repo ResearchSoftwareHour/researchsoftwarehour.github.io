@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 3: More about dependencies, versioning, and documentation" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 3: More about dependencies, versioning, and documentation</h1>
+  
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=RYYimW-Qj-4&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <ul>
+<li>
+<p>Specifying dependencies for a project tends to be quite language dependant. There is a strong convention for a requirements.txt in Python for instance. Is there a language independent way to make your dependencies clear and easily usable?</p>
+<ul>
+<li>Not really. Quite often projects describe their OS/OS library/other library needs in that order.</li>
+</ul>
+</li>
+<li>
+<p>Are there specific journals where one can publish science codes/libraries that are applied in scientific projects, together with documentation and a short explanatory paper? Such a 'publication' hardly qualifies for the standard scientific journals, but might still be relevant for publication.</p>
+<ul>
+<li>These are generally called software metapapers. Some examples:
+<ul>
+<li><a href="https://researchsoftwarehour.github.io/sessions/rsh-003/joss.theoj.org/">JOSS</a></li>
+<li><a href="https://researchsoftwarehour.github.io/sessions/rsh-003/openresearchsoftware.metajnl.com/">JORS</a></li>
+<li><a href="https://www.journals.elsevier.com/softwarex">SoftwareX</a></li>
+</ul>
+</li>
+<li>NeuroImage publishes <a href="https://www.elsevier.com/journals/neuroimage/1053-8119/guide-for-authors#txt20105">&quot;Toolbox and Software&quot;</a> papers.</li>
+</ul>
+</li>
+<li>
+<p>Does meson or scons makes things easier, compared to autotools or a makefile or cmake?</p>
+<ul>
+<li>Not sure but CMake, autotools, and makefiles clearly dominate research software (as far as I can see)</li>
+</ul>
+</li>
+<li>
+<p>Can you FetchContent from Zenodo?</p>
+<ul>
+<li>it is possible to fetch from a URL/Tarball, I think it should be possible. I will try it out.</li>
+</ul>
+</li>
+<li>
+<p>Do you gitignore every dependency under your &quot;external/&quot; subfolder or do you add everything to your repo? (I have found my code in the 'external' subfolder of other repositories)</p>
+<ul>
+<li>A <a href="http://www.nils-haldenwang.de/frameworks-and-tools/git/how-to-ignore-changes-in-git-submodules">solution</a> is to set <code>ignore=dirty</code> if you use submodules</li>
+</ul>
+</li>
+<li>
+<p><a href="https://calver.org/">Calendar versioning</a> ? Yes, +1 for calendar versioning.</p>
+<ul>
+<li>It works for distributions, or websites etc, maybe not for libraries?</li>
+</ul>
+</li>
+<li>
+<p>If you're interested on scientific software installation with scientific software build systems, check <a href="https://spack.io/">spack</a> and <a href="https://easybuild.readthedocs.io/en/latest/">easybuild</a>. -Simo</p>
+</li>
+<li>
+<p>On GitHub, if you have lines selected, you can hit &quot;y&quot; to automatically put the permalink with the hash in the URL.</p>
+<ul>
+<li>awesome!</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/github/gitignore/tree/master/Global">Resource on global gitignore templates and instructions</a></p>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

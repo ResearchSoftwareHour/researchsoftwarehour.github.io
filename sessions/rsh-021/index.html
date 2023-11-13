@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 21: OBS (Open broadcaster software)" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 21: OBS (Open broadcaster software)</h1>
+  <i>OBS for teaching and other purposes.</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=L6Ab271_kB0&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h2 id="open-broadcaster-software">Open Broadcaster Software</h2>
+<ul>
+<li>https://obsproject.com/</li>
+<li>https://coderefinery.github.io/manuals/obs/</li>
+</ul>
+<h2 id="topics">Topics</h2>
+<ul>
+<li>
+<p>What is streaming?</p>
+</li>
+<li>
+<p>What is OBS?</p>
+<ul>
+<li><a href="https://obsproject.com/">Open Broadcast Software</a></li>
+</ul>
+</li>
+<li>
+<p>Benefits over Zoom:</p>
+<ul>
+<li>Can be used in tandem with Twitch to broadcast without needing a Zoom broadcast lisence or risking Zoom-bombing</li>
+</ul>
+</li>
+<li>
+<p>OBS user interface</p>
+<ul>
+<li>Scenes
+<ul>
+<li>to set and configure various <code>source</code> settings</li>
+<li>possible to have media files and scenes within scenes</li>
+<li>can be shared by exporting/importing</li>
+</ul>
+</li>
+<li>Audio mixer:
+<ul>
+<li>track feature: maybe useful to keep only speaker audio</li>
+</ul>
+</li>
+<li>Settings:
+<ul>
+<li>Defaults are generally good</li>
+<li>General (mainly related to UI)</li>
+<li>Audio (various devices)</li>
+<li>Video (resolution and so on)</li>
+<li>Output</li>
+</ul>
+</li>
+<li>Virtual Camera:
+<ul>
+<li>Fancy effects, some people use it for teaching</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Basic arrangement of scenes and stuff</p>
+</li>
+<li>
+<p>practical notes</p>
+</li>
+</ul>
+<h2 id="questions">Questions:</h2>
+<ul>
+<li>Can we discuss file formats and containers for saving audio/video files in general, and in OBS context in particular.
+<ul>
+<li>outputs into standard container formats</li>
+<li>originally used mp4 but complicated file recovery if computer crashes</li>
+<li>these days using mov format (but same problem as above)</li>
+<li>mkv: unsure whether it can make trouble with YouTube upload</li>
+<li>important to note: container formats and encoding formats can be handled separately</li>
+<li>Rate control:
+<ul>
+<li>for streaming - constant bit rate is recommended (to be confirmed)</li>
+<li>CRF - constant rate factor - a variable bitrate that is adjusted to make sure that quality is constant, good for recording (think filesize)</li>
+</ul>
+</li>
+<li>recommendations: https://coderefinery.github.io/manuals/obs/#basic-configuration</li>
+</ul>
+</li>
+</ul>
+<p>On twitch - couldn't hear Radovan, also audio is now having a white noise (after attaching the midi controller)</p>
+<ul>
+<li>
+<p>thanks for the note and sorry for the troubles</p>
+</li>
+<li>
+<p>You probably saw it already: it is possible to control scenes and such without an external midi-controller, in the settings via key-bindings.</p>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

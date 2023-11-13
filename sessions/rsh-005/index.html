@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 5: Interview with a research software engineer" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 5: Interview with a research software engineer</h1>
+  
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=WIYaXzXLLY4&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="what-did-you-work-on-in-the-past-week">What did you work on in the past week?</h3>
+<ul>
+<li>started to package one of my old research code (clean up, more tests, better pipeline, compatibility with sklearn) --&gt; got inspired here
+<ul>
+<li>ah, pipeline is more like: better usage from data to predictions</li>
+<li><strong>Q</strong>: Maybe we could once talk about how to design test-code / -cases?</li>
+</ul>
+</li>
+<li>I started to extensively test my program, this is important!
+<ul>
+<li>it is c++ so boost::test</li>
+</ul>
+</li>
+</ul>
+<h3 id="interview-with-sarah-gibson">Interview with Sarah Gibson</h3>
+<ul>
+<li>I like that, &quot;two ends of the same spectrum&quot;</li>
+<li>[name=Sarah] Terms origins: https://www.software.ac.uk/research-software-engineers</li>
+<li>this is an important aspect. As you know science first hand, you understand the needs and can talk to the community</li>
+<li>The book: https://the-turing-way.netlify.app/index.html</li>
+<li>Binder: https://mybinder.org/
+<ul>
+<li><strong>Q</strong>: example or live demo?</li>
+<li>yes we should</li>
+<li>yes - binderize a repo</li>
+<li>[name=Sarah] bit.ly/zero-to-binder-tutorial or bit.ly/zero-to-binderhub-workshop</li>
+<li>[name=Kirstie] Workshop that Sarah is instructing at on June 11 - open for everyone :sparkles: https://www.eventbrite.co.uk/e/workshop-boost-research-reproducibility-with-binder-registration-105228216428</li>
+</ul>
+</li>
+<li>in CodeRefinery we could use repo2docker to convert the requirements.txt to an image</li>
+<li>What do you know now, that you would have liked known when you started?
+<ul>
+<li>[name=Sarah] Version control is the magic time machine I wish I'd had during my PhD and everything broke :joy:</li>
+</ul>
+</li>
+</ul>
+<h3 id="snakemake-files">Snakemake files</h3>
+<ul>
+<li>I guess they are also more often read than programmed, so readability is more important, right?</li>
+<li>Snakemake seems a very nice option. I think I may switch to it for our course as well. Make is very useful for keeping our data files updated (there are all sorts of preprocessing steps after which one make sure everything down the line is updated), but its syntax is super old and students don't really like fighting with it :) This seems much more easy to get through, thanks for the idea :) (from chat)</li>
+<li>the comment is Make syntax is super old (from chat)</li>
+<li>Are there noteworthy alternatives to snakemake? Somebody mentioned its syntax is super old...</li>
+</ul>
+<h3 id="versioning-data">Versioning data</h3>
+<ul>
+<li>Data Version Control: https://dvc.org/
+<ul>
+<li>[name=Richard] apparently dvc even added telemetry without adding notifications in advance: https://github.com/iterative/dvc/issues/1449</li>
+</ul>
+</li>
+<li>Alternatives:
+<ul>
+<li>https://git-annex.branchable.com/</li>
+<li>https://git-lfs.github.com/</li>
+</ul>
+</li>
+</ul>
+<h3 id="autoformatting">Autoformatting</h3>
+<ul>
+<li>Autoformatting with clang-format
+<ul>
+<li>[name=lnw] the 'Allman' is useful but I think for all options one does not set, a default is used.</li>
+</ul>
+</li>
+</ul>
+<h3 id="smaller-demonstrations">Smaller demonstrations</h3>
+<ul>
+<li>A couple of tools I started using which reimplemented classic tools
+<ul>
+<li>[name=Radovan] find→fd, grep→ripgrep, ls→exa, cat→bat</li>
+</ul>
+</li>
+</ul>
+<h3 id="content-ideas">Content ideas</h3>
+<ul>
+<li>More advanced topics, please :)</li>
+<li>Debugging segfaults!</li>
+<li>More advanced is good, but of course you'll lose a subsection of people ...</li>
+<li>I for one cannot follow well the more advanced parts, but I do not mind them either. I think the mix has been good, and I like that I always learn something unexpected! :)</li>
+<li>I'm thinking that focusing on a topic for longer can make it easier for people to recognize what they want to know and ask questions. I do like the short mentions of several topics, but I think topic is changing a bit too fast for people to ask questions. I think this is the difference with the previous sessions (where you held the focus for a longer time). That said, I do enjoy the random idea drop very much, so please do keep doing that too :)</li>
+<li>advanced usage of GDB</li>
+<li>How to write proper unit tests for more complicated functions. (+)</li>
+<li>I was quite happy about snakemake. Any tool that makes dealing with pipelines easier would be useful to my students, so would be interested in finding out more.</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

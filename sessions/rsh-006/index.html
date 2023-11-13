@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 6: Testing" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 6: Testing</h1>
+  <i>If it&#x27;s not tested, you can&#x27;t trust it</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=cIR9YigTzs4&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <ul>
+<li>
+<p>What did you work on in the past week?</p>
+<ul>
+<li>Writing unit tests for (my own) older code.</li>
+</ul>
+</li>
+<li>
+<p>Suggestion for next week:</p>
+<ul>
+<li>byobu, tmux (screen) how to use a shell (connected via ssh) properly
+<ul>
+<li>followed-up here: https://github.com/ResearchSoftwareHour/rsh-notes/issues/36</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="testing">Testing</h3>
+<ul>
+<li>
+<p>testing private methods:</p>
+<ul>
+<li>depending on the language (Java) you can use introspection to make it non-private</li>
+<li>in C++ maybe use friend and a second class to make stuff public just for the test</li>
+<li>in Python, there should not be private methods, simply call the <code>_foo()</code>, <code>__bar()</code></li>
+</ul>
+</li>
+<li>
+<p>Redirecting <code>print</code> output in Python:</p>
+</li>
+</ul>
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">import </span><span>io
+</span><span style="color:#72ab00;">import </span><span>contextlib
+</span><span>my_io_buffer </span><span style="color:#72ab00;">= </span><span>io.</span><span style="color:#5597d6;">StringIO</span><span>()
+</span><span style="color:#72ab00;">with </span><span>contextlib.</span><span style="color:#5597d6;">redirect_stdout</span><span>(my_io_buffer):
+</span><span>    </span><span style="color:#72ab00;">import </span><span>my_chatty_module </span><span style="color:#7f8989;"># all output is now in the io buffer
+</span><span>    </span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#d07711;">&#39;abcd&#39;</span><span>) </span><span style="color:#7f8989;"># abcd is now in the io buffer
+</span></code></pre>
+<ul>
+<li>
+<p>[name=Radovan] Nice!</p>
+</li>
+<li>
+<p>pytest has capture output: https://docs.pytest.org/en/latest/capture.html</p>
+</li>
+<li>
+<p>Automated testing</p>
+<ul>
+<li>Travis validator: https://config.travis-ci.com/explore</li>
+</ul>
+</li>
+<li>
+<p>[name=Ashwin] What you describe today is &quot;example-based testing&quot;, and also manual &quot;mutation testing&quot;.</p>
+<ul>
+<li>Property testing (for eg. in Python with <a href="https://hypothesis.readthedocs.io/en/latest/"><code>hypothesis</code></a>)</li>
+<li>todo: let's have a session where we talk about all the different types of tests
+<ul>
+<li>followed-up here: https://github.com/ResearchSoftwareHour/rsh-notes/issues/37</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>who pays for the GitHub Actions CPU power? Is there a limit on seconds per run?</p>
+<ul>
+<li>GitHub/Microsoft itself. Public repositories free, private have some limits: https://help.github.com/en/actions/getting-started-with-github-actions/about-github-actions#usage-limits</li>
+</ul>
+</li>
+</ul>
+<h3 id="history-cleanup">History cleanup</h3>
+<ul>
+<li>
+<p>To rebase / fixup etc. ideally you should work on a local branch, right? i.e. you should not have pushed the commits.</p>
+<ul>
+<li>Ideally on a local branch but sometimes I do cleanup pushed commits if it is clear to me that nobody depends
+on these commits and clear to everybody that these can change.</li>
+</ul>
+</li>
+<li>
+<p>Difference between <code>git push --force</code> and <code>git push --force-with-lease</code>?</p>
+<ul>
+<li>Never heard of it before, but this looks promising: https://stackoverflow.com/questions/52823692/git-push-force-with-lease-vs-force</li>
+</ul>
+</li>
+<li>
+<p>Thank you :-)</p>
+</li>
+</ul>
+<h3 id="feedback">Feedback</h3>
+<ul>
+<li>maybe try to mix and make theme based sessions?</li>
+<li>I learned a few useful tricks today, thanks :+1:</li>
+<li>I would also like to see both, &quot;scientific&quot; and &quot;tool&quot; topics! :) Thank you very much! You deserve much more attention/viewers!</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

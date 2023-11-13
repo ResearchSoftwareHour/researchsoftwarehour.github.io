@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 7: Packaging and distributing" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 7: Packaging and distributing</h1>
+  <i>You made it, how can others use it?</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=Gq8dKk9lK9A&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="any-new-tool-concept-that-you-learned-in-the-last-week">Any new tool/concept that you learned in the last week?</h3>
+<ul>
+<li>yes: google-benchmark, quite useful for microbenchmarks but their usefulness on the other hand is in question, you can time a snippet of code, it takes care of interferences that you can get by the os eg., <a href="https://github.com/google/benchmark">https://github.com/google/benchmark</a></li>
+</ul>
+<pre data-lang="cpp" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-cpp "><code class="language-cpp" data-lang="cpp"><span style="color:#72ab00;">#include </span><span style="color:#d07711;">&lt;benchmark/benchmark.h&gt;
+</span><span>
+</span><span style="color:#668f14;">static void </span><span style="color:#c23f31;">BM_SomeFunction</span><span>(benchmark::State</span><span style="color:#72ab00;">&amp; </span><span style="color:#5597d6;">state</span><span>) {
+</span><span>  </span><span style="color:#7f8989;">// Perform setup here
+</span><span>  </span><span style="color:#72ab00;">for </span><span>(</span><span style="color:#668f14;">auto</span><span> _ </span><span style="color:#72ab00;">:</span><span> state) {
+</span><span>    </span><span style="color:#7f8989;">// This code gets timed
+</span><span>    </span><span style="color:#5597d6;">SomeFunction</span><span>();
+</span><span>  }
+</span><span>}
+</span><span style="color:#7f8989;">// Register the function as a benchmark
+</span><span style="color:#5597d6;">BENCHMARK</span><span>(BM_SomeFunction);
+</span><span style="color:#7f8989;">// Run the benchmark
+</span><span style="color:#5597d6;">BENCHMARK_MAIN</span><span>();
+</span><span>
+</span><span>Benchmark                               </span><span style="color:#c23f31;">Time</span><span>(</span><span style="color:#5597d6;">ns</span><span>)    </span><span style="color:#5597d6;">CPU</span><span>(ns) Iterations
+</span><span style="color:#72ab00;">----------------------------------------------------------------------
+</span><span>BM_SetInsert</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">1024</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">1                        28928      29349      23853  133.097</span><span style="color:#668f14;">kB</span><span style="color:#72ab00;">/</span><span>s   </span><span style="color:#b3933a;">33.2742</span><span style="color:#668f14;">k</span><span> items</span><span style="color:#72ab00;">/</span><span>s
+</span><span>BM_SetInsert</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">1024</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">8                        32065      32913      21375  949.487</span><span style="color:#668f14;">kB</span><span style="color:#72ab00;">/</span><span>s   </span><span style="color:#b3933a;">237.372</span><span style="color:#668f14;">k</span><span> items</span><span style="color:#72ab00;">/</span><span>s
+</span><span>BM_SetInsert</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">1024</span><span style="color:#72ab00;">/</span><span style="color:#b3933a;">10                       33157      33648      21431  1.13369</span><span style="color:#668f14;">MB</span><span style="color:#72ab00;">/</span><span>s   </span><span style="color:#b3933a;">290.225</span><span style="color:#668f14;">k</span><span> items</span><span style="color:#72ab00;">/</span><span>s
+</span></code></pre>
+<ul>
+<li>
+<p>I was experimenting with <a href="https://github.com/google/jax">https://github.com/google/jax</a> (for automatic differentiation)</p>
+</li>
+<li>
+<p>maybe not discovered, but still trying to use gdb for real, it is not too easy to handle</p>
+</li>
+</ul>
+<h3 id="about-the-hashbang">About the hashbang</h3>
+<ul>
+<li>
+<p>Curiously &quot;/usr/bin/env make -f&quot; works ok on the command line. No quotes.</p>
+</li>
+<li>
+<p>there seems to be an answer https://unix.stackexchange.com/questions/399690/multiple-arguments-in-shebang</p>
+<ul>
+<li><code>#!/usr/bin/env -S command arg1 arg2 ...</code></li>
+<li>but it says not portable</li>
+<li>coreutils &gt;= 8.3</li>
+</ul>
+</li>
+</ul>
+<h3 id="pypi-part">PyPI part</h3>
+<ul>
+<li><a href="https://github.com/bast/pypi-howto">https://github.com/bast/pypi-howto</a></li>
+<li><a href="https://github.com/ResearchSoftwareHour/demo-pypi">https://github.com/ResearchSoftwareHour/demo-pypi</a></li>
+<li><a href="https://flit.readthedocs.io/">https://flit.readthedocs.io/</a></li>
+<li><a href="https://python-poetry.org/">https://python-poetry.org/</a></li>
+</ul>
+<h3 id="packaging">Packaging</h3>
+<ul>
+<li><a href="https://scicomp.aalto.fi/scicomp/packaging-software/">https://scicomp.aalto.fi/scicomp/packaging-software/</a></li>
+<li>Is pinning vs not pinning a question of reproducibility vs  replicability?</li>
+</ul>
+<h3 id="other-questions">Other questions</h3>
+<ul>
+<li>Are you planning for a summer break?
+<ul>
+<li>Great idea. We will and we will be back in August.</li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

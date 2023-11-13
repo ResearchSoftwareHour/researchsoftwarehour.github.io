@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 9: How we start projects, our setups, how we backup ideas" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 9: How we start projects, our setups, how we backup ideas</h1>
+  <i>Various practical tips</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=zNnONfdPjrg&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="icebreaker">Icebreaker</h3>
+<p>How do you backup your work and your ideas?</p>
+<ul>
+<li>google drive :) (google docs). I can write things down from anywhere</li>
+<li>google keep, gist, hackmd</li>
+<li>notes on paper, notes in <a href="https://joplinapp.org">Joplin app</a>, mails to myself (mostly for stuff I find on Twitter), open issues in GitHub repos</li>
+<li>markdown, LaTeX, and org-mode in a Git repo stored in Dropbox</li>
+<li>Everything I do is in GitHub as soon at it is more than just an idea. I wish the professor of our group had a common GitHub for our group (like many top groups), for his own sake, too (the lottery problem you mentioned)</li>
+</ul>
+<h3 id="questions-and-answers">Questions and answers</h3>
+<ul>
+<li>octobox.io is amazing for keeping track of issues across GitHub repos
+<ul>
+<li>thanks!!!</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>How do you keep the overview? Example: I have a .py module with a class and lot of subfunction and invisible functions with underscore. Is there a way how to keep track of it? To have an overview, what functions exist?</p>
+<ul>
+<li>How could I organise the functions inside a module?</li>
+<li>One option is to generate API reference using Sphinx which will list all functions.</li>
+<li>Also if it becomes a bit hard to navigate, it can help to split the module into smaller modules.</li>
+</ul>
+</li>
+<li>
+<p>cryptpad.fr -&gt; kanban board</p>
+</li>
+<li>
+<p>has anyone used github projects </p>
+<ul>
+<li>we use it but it's a bit behind: https://github.com/orgs/coderefinery/projects</li>
+</ul>
+</li>
+<li>
+<p>Can you talk about continuous integration (in general)?</p>
+<ul>
+<li>great suggestion, we should do a session on this in case we run out of time today</li>
+<li>oh yeah, I would to see a session on that (Travis vs GitHub Actions vs Circle CI vs Drone, etc.)</li>
+<li>We've had some previous episodes that mentioned github actions.  We'd like to do more again.</li>
+</ul>
+</li>
+<li>
+<p>Q: What is a kanban board, please?</p>
+<ul>
+<li>https://en.wikipedia.org/wiki/Kanban_board</li>
+</ul>
+</li>
+<li>
+<p>I think not all files can be kept track with git? Am I wrong? What would happen with .docx  files?</p>
+<ul>
+<li>Formats with flat text files (tex, md, rst) indeed work better with Git</li>
+</ul>
+</li>
+<li>
+<p>Nice Rust reimplementations of classic command line tools:</p>
+<ul>
+<li>exa, ripgrep, fd, bat</li>
+<li>What are the original ones implemented in? Perl?
+<ul>
+<li>I think mostly in C</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>What are the differences between bash and zsh? What are some useful <code>alias</code>es or other shell configurations to have?</p>
+<ul>
+<li>I liked that in zsh I could more easily mass-rename files. Also good for &quot;remove all except one file&quot;.</li>
+</ul>
+</li>
+<li>
+<p>Recommended tech talk about tools in general: https://www.youtube.com/watch?v=I56oFTm9UlE</p>
+</li>
+<li>
+<p>vidir</p>
+<ul>
+<li>https://github.com/trapd00r/vidir</li>
+</ul>
+</li>
+<li>
+<p>What is the website, please?</p>
+<ul>
+<li>researchsoftwarehour.github.io</li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

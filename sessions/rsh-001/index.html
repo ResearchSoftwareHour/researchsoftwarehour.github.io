@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 1: Hello world" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 1: Hello world</h1>
+  
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ZMXaQcFSaW0&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <ul>
+<li>
+<p>A problem I keep running into: running different kinds of analyses on some dataset, trying things, some things work, others don't. How to keep track of the resulting data files? I always end up with 50 versions and have no idea what version/experiment yielded which result. For code, I have git, but for data (files are like 1GB in size)?</p>
+<ul>
+<li>Workflow management is a big topic, we'll certainly cover it later - probably a lot.</li>
+<li>I hear good things about https://dvc.org/ but haven't tried it myself yet.</li>
+</ul>
+</li>
+<li>
+<p><em>&quot;pair&quot; programming</em>, when helping people, how do you use the same notebook for example, have tried setting up cocalc-docker, but self-hosting is tricky</p>
+<ul>
+<li>I am still looking for a good setup for several people to code on the same notebook. It seems https://visualstudio.microsoft.com/services/live-share/ works great for collaboration on scripts/code (not sure about notebooks).</li>
+<li>I have experimented with https://beta.deepnote.com/ which might we what you are looking for.</li>
+</ul>
+</li>
+<li>
+<p>another thing is how to do <em>functional testing</em>, unit testing is straight forward, but I work on DSP code, so sometimes things just don't converge so at times a fail just pops up but runs fine if repeated (nature of the algorithms).</p>
+<ul>
+<li>Good point!  I have some ideas on this, but I'm not sure what others do.  What I did once was drive the system to one bound, for example $p=1$ to force it to <em>always</em> be a complete graph, and verify that works.  Still, better practices are needed.</li>
+<li>Note sure this is a useful answer but try to explain somebody or write down how you visually test your code: what are the things that you look at in your results when judging whether the code is still working. Then I would try to express that in code. &quot;I make sure that X is within these bounds and that statistics follows Y and Z&quot;, something like that.</li>
+</ul>
+</li>
+<li>
+<p>Example code #1 rkdarst/pcd: https://github.com/rkdarst/pcd/</p>
+<ul>
+<li>5 years old, was an attempt at modularity but missing some key things like licensing, README, documentation.</li>
+</ul>
+</li>
+<li>
+<p>Example code #2 https://github.com/dftlibs/numgrid</p>
+<ul>
+<li>Good parts: purpose, copy-pasteable example, recommended citation</li>
+</ul>
+</li>
+<li>
+<p>Five Recommendations for FAIR Software:</p>
+<ul>
+<li>https://fair-software.nl/</li>
+</ul>
+</li>
+<li>
+<p>Zenodo uses versions DOIs to update them when releases happen</p>
+<ul>
+<li>this is somewhat counterproductive (IMO), because citations get split over many versions, also most users might just use git versions</li>
+<li>I think it is not a problem to refer to Git versions directly if we assume that the maintainers never rewrite the history.</li>
+</ul>
+</li>
+<li>
+<p>How do you choose a license?</p>
+<ul>
+<li>We'll talk about licenses some later</li>
+<li>https://choosealicense.com/</li>
+</ul>
+</li>
+<li>
+<p>How do you decide between cffi / cython / pybind11 to generate python bindings?</p>
+<ul>
+<li>I'm sure we'll cover this later.</li>
+<li>CFFI is my preferred tool to interface to C and Fortran (via iso_c_binding). PyBind11 is my preferred tool to interface to C++. Cython is powerful and nothing wrong with it but I usually go for the other two.</li>
+</ul>
+</li>
+<li>
+<p>anyone has used pythran? I would highly recommend. To elaborate, pythran is a python to c++ converter for numeric code. It typically gets the same speed-up as the very optimized cython code, but looks like regular numpy/python code</p>
+<ul>
+<li>I have. Great for exporting Python/Numpy code.</li>
+</ul>
+</li>
+<li>
+<p>What do you know now, that you wish someone had taught you when you first started?</p>
+<ul>
+<li>How to use Git properly. Branching, merging, rebasing, amending</li>
+<li>same any version control beyond v1 v2 v3 naming</li>
+<li>also organise a project not single use matlab scripts without any functions ... and code gets changed line-by-line</li>
+<li>how to organize a data analysis pipeline
+<ul>
+<li>using pytest for those purposes</li>
+<li>Test driven development</li>
+</ul>
+</li>
+<li>How to use a (Python) debugger! (from the twitch comments)
+<ul>
+<li>Jupyter's %debug magic command serves 95% of my debugging needs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>a big issue we have is open data, i.e. how to publish our data, as for us a single publication might entail ~TB of data, and is unfortunately not really compressible.</p>
+<ul>
+<li>https://osf.io will host huge datasets for you</li>
+<li>This can be a big issue for experimental data and really needs to be tackled on an institutional level. For computational datasets, this is where reproducibility is key, if you can't share the data you can share the means to recreate it.</li>
+</ul>
+</li>
+<li>
+<p>a zenodo question, has anyone managed for their zenodo publication to show up in google scholar?</p>
+</li>
+<li>
+<p>Demo: <code>git-pr</code>: https://github.com/NordicHPC/git-pr</p>
+<ul>
+<li>Installation instructions on the page there - basically, put one shell script into your $PATH.  No dependencies, but you need to install <code>hub</code> to open PRs.</li>
+</ul>
+</li>
+<li>
+<p>Demo: <code>tldr</code>: https://tldr.sh/, https://github.com/tldr-pages/tldr</p>
+<ul>
+<li>regarding tldr there is also bropages and cheat</li>
+</ul>
+</li>
+<li>
+<p>Text editors</p>
+</li>
+<li>
+<p>Question on pull requests (This might be too long to answer.): I have worked with Git, but I have never worked with pull requests. Which other things change in terms of workflow when working with pull requests rather than pushing directly to the main branch?</p>
+<ul>
+<li>You can start slow if you want, only use PRs for big changes</li>
+<li>You can make the <code>master</code> branch protected, so everything has to go through a PR.</li>
+<li>Most important thing is social: getting people to review them and give changes.  It can make things go slightly slower, but quality and collaboration goes up a lot.  But working together more is generally a good thing and PRs facilitate that.</li>
+<li>The view https://github.com/pulls is useful for reviewing open PRs.</li>
+</ul>
+</li>
+<li>
+<p>how comprehensive is the coverage of tldr? (from twitch chat)</p>
+<ul>
+<li>It was pretty comprehensive, the &quot;common&quot; directory seems to have   over 1000 pages</li>
+</ul>
+</li>
+<li>
+<p>Follow-up on pull-requests: You mentioned working only on the main branch vs. working on several branches: How does this work? How to I keep in mind what information is stored in which version of the project etc.? It sounds complex.</p>
+<ul>
+<li>I like to organise branches with names like bugfix/wrongasnwer or feature/newthing refactor/rewritesmth.</li>
+<li>Working on one branch is fine for single-person projects which are small. But for research groups it can be useful to write-protect the <code>master</code> branch and all changes go from either branches on the same repository or from branches on forks. One branch for one task to make sure branches are not too long lived.</li>
+</ul>
+</li>
+<li>
+<p>Follow-up as well: do you give grad-students/collaborators direct access or ask to fork projects</p>
+<ul>
+<li>We like to be as flat as possible, at least for something like a group.  Having a junior person review a senior person's code and merge it is a great way to share knowledge.</li>
+<li>Outside collaborators who are new would likely get outside access</li>
+<li>You could also look at it is, if you use PRs and when someone is ready to review and merge other code, they can be given access.</li>
+<li>In some of projects I collaborate to few persons are maintainers and they merge. These are the persons who also do some housekeeping but we try to make sure that nobody is more equal than others. Person submitting and person reviewing are two different people. Also it does not have to be only those with write permissions who review code and comment on changes.</li>
+</ul>
+</li>
+<li>
+<p>Did you tell us how to get pr into our gits? (from twitch chat)</p>
+<ul>
+<li>I put installation instructions above with the link</li>
+</ul>
+</li>
+<li>
+<p>Open Source project: I want to make such a first contribution to a project (I have something precise in mind I need/want to contribute), but I have never worked with pull requests. I can contribute this for next time :-)</p>
+<ul>
+<li>That would be great to do live in Twitch! Make a PR to a real project live!</li>
+<li>Anyone want to make a request for us to do one?</li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

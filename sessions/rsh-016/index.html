@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 16: Debugging" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 16: Debugging</h1>
+  <i>Debugging: we all do it, we are never taught it. How we approach it and some tools we use</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=a6zCiqX3058&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="ice-breaker-question">Ice-breaker question</h3>
+<p>What was the most difficult bug you have chased/solved? What was the longest
+debugging session/period for you?</p>
+<ul>
+<li>couple of days for one line of code</li>
+<li>couple of hours (around 10h) and learning that it was not straightforward to put simple text into an HDF5 file</li>
+<li>couple of days, most difficult was to find the bug in a part where i was abslutely sure it was right</li>
+<li>couple of days, gave up for a few months (on that new module), solved it in a few hours next time I looked at it. The issue with locating the bug was that debugging/print statements led me to believe that the error was in the wrong part of the code, due to asynchronous execution. In the end, the error was a simple index error.</li>
+<li>over a week. A bug that was very hard to reproduce and trigger. Software had poor test coverage.</li>
+</ul>
+<h3 id="questions-and-comments">Questions and comments</h3>
+<ul>
+<li>
+<p>Is this related? How to keep an overview about the code that gets more and more complex?</p>
+<ul>
+<li>definitely related. the more modular and &quot;well structured&quot; code, the easier it may be to locate/corner the bug.</li>
+</ul>
+</li>
+<li>
+<p>Python logging module: https://docs.python.org/3/library/logging.html</p>
+</li>
+<li>
+<p>Git bisect exercise: https://github.com/coderefinery/git-bisect-exercise/</p>
+</li>
+<li>
+<p>Error message:</p>
+</li>
+</ul>
+<p>Code:</p>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>import ipyparallel as ipp
+</span><span>rc = ipp.Client()
+</span><span>rc.ids
+</span><span>executor = rc.become_dask(ncores=4)
+</span><span>executor
+</span></code></pre>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>Traceback (most recent call last):
+</span><span>  File &quot;/opt/conda/lib/python3.7/site-packages/ipyparallel/controller/hub.py&quot;, line 559, in dispatch_query
+</span><span>    handler(idents, msg)
+</span><span>  File &quot;/opt/conda/lib/python3.7/site-packages/ipyparallel/controller/hub.py&quot;, line 1467, in become_dask
+</span><span>    self.distributed_scheduler = scheduler = Scheduler(**kwargs)
+</span><span>  File &quot;/opt/conda/lib/python3.7/site-packages/distributed/scheduler.py&quot;, line 885, in __init__
+</span><span>    self.bandwidth = parse_bytes(dask.config.get(&quot;distributed.scheduler.bandwidth&quot;))
+</span><span>  File &quot;/opt/conda/lib/python3.7/site-packages/dask/utils.py&quot;, line 1164, in parse_bytes
+</span><span>    s = s.replace(&quot; &quot;, &quot;&quot;)
+</span><span>AttributeError: &#39;int&#39; object has no attribute &#39;replace&#39;
+</span></code></pre>
+<ul>
+<li>Do you not start at the bottom and read up?
+<ul>
+<li>this is what I most often do in these cases
+<ul>
+<li>oops :-) it seems Python and Fortran/C unwind errors in different orders</li>
+</ul>
+</li>
+<li>Would say depends a little on the kind of program you are debugging. When using frameworks sometimes the answer is in the middle of the traceback.</li>
+<li>I usually</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Check changelog as well. Might be that a fix is mentioned.
+<ul>
+<li>great point!</li>
+<li>changelogs, issues, pull requests</li>
+</ul>
+</li>
+</ul>
+<p>&quot;Sleep on it&quot; :smile: :+1:</p>
+<ul>
+<li>
+<p>Ask somebody else to have a look?</p>
+<ul>
+<li>Also explain it to someone else - See <a href="https://en.wikipedia.org/wiki/Rubber_duck_debugging">Rubber duck debugging</a></li>
+</ul>
+</li>
+<li>
+<p>Also just trying to explain to the little rubber duck what is happening and what should actually happen.</p>
+<ul>
+<li>Often I have found the solution by explaining the problem to somebody. So this is real :-)</li>
+</ul>
+</li>
+<li>
+<p>The Zen of Python: https://www.python.org/dev/peps/pep-0020/</p>
+<ul>
+<li>or <code>import this</code></li>
+</ul>
+</li>
+<li>
+<p><code>set -e</code></p>
+</li>
+<li>
+<p><code>set -euo pipefail</code></p>
+</li>
+<li>
+<p><code>set -x</code></p>
+</li>
+<li>
+<p><code>-q</code> <code>-v</code> <code>-vv</code>, <code>-vvv</code></p>
+</li>
+<li></li>
+</ul>
+<p>&quot;debuggers do not remove bugs, they run your code in slow motion&quot; [citation needed]</p>
+<ul>
+<li>TIL: https://en.wikipedia.org/wiki/Heisenbug</li>
+</ul>
+<p>The example that we use gdb on (later also Valgrind): https://github.com/ResearchSoftwareHour/demo-debugging :+1:</p>
+<ul>
+<li>
+<p>fortran example: fortran/bugs/</p>
+<ul>
+<li>-g -fpe-trap=zero,invalid,overflow,underflow</li>
+</ul>
+</li>
+<li>
+<p>Would it be easier to do this in an IDE (?), e.g. like Spyder, where one could see the variable and their values?</p>
+<ul>
+<li>yes I think so, it's a lot easier to follow the position and see the variables</li>
+</ul>
+</li>
+<li>
+<p>Is there a way to print all variables and their values currently in memory? +1</p>
+<ul>
+<li>yes (I don't remember off-hand how, though)</li>
+<li>try <code>help all</code> in gdb
+<ul>
+<li>how about in the python (was it pdb?)
+<ul>
+<li><code>import pdb ; pdb.set_trace()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>I remember in Matlab I could put a command into the code and it would exactly stop there and give me access to the values save in this current moment.</p>
+<ul>
+<li>yes - a &quot;breakpoint&quot;. in python this would be <code>breakpoint()</code> after importing <code>pdb</code></li>
+<li>in visual studio code you can also click next to a line and it sets a breakpoint at that line (never used though, just did it by accident and wondered what was wrong :D)
+- Thank you!
+- See also <a href="https://microsoft.github.io/debug-adapter-protocol">debug adapter protocol</a> and a list of <a href="https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/">supported languages</a></li>
+</ul>
+</li>
+<li>
+<p>For Rust developers, I was happy to find out about the macro <code>dbg!()</code></p>
+</li>
+<li>
+<p>Have you heard about sourcery?</p>
+<ul>
+<li>I haven't, please tell us more ...</li>
+<li>https://sourcery.ai/ ?
+<ul>
+<li>Yes, I heard about it in a podcast. I thought it checks you code and makes suggestions, maybe another sort of debugging?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>awesome! I missed the variable inpector from Rstudio when starting with python. Now will look into if there is same in VSCode, do you know? -&gt; seems there is under the run debug view (play sign with bug)</p>
+</li>
+<li>
+<p>In Matlab the very similar variable inspector could handle the changing variables when one goes into the functions.</p>
+</li>
+<li>
+<p>anyone with debugging advice on Haskell? Would like to hear/read any stories.</p>
+<ul>
+<li>I would also like to know :-)</li>
+</ul>
+</li>
+<li>
+<p>https://valgrind.org/</p>
+</li>
+<li>
+<p>@bast any chance of showing how to approach a segfault? +2</p>
+</li>
+<li>
+<p>even describing what it is. It's still a bit vague to me.</p>
+<ul>
+<li>https://www.geeksforgeeks.org/core-dump-segmentation-fault-c-cpp/</li>
+<li>Thanks!</li>
+</ul>
+</li>
+<li>
+<p>Python takes care of memory leaks?</p>
+<ul>
+<li>Not really. You can still have them but they have a different form. For instance Python has a Garbage Collector that ensures unused memory is released at specific times when no additional references exist to this memory. You can still have a memory leak if you do something like:</li>
+</ul>
+</li>
+</ul>
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">def </span><span style="color:#c23f31;">func</span><span>(</span><span style="color:#5597d6;">mylist</span><span style="color:#72ab00;">=</span><span>[]):
+</span><span>    mylist.</span><span style="color:#5597d6;">append</span><span>(</span><span style="color:#d07711;">&quot;hello&quot;</span><span>)
+</span><span>    </span><span style="color:#b39f04;">print</span><span>(mylist)
+</span><span>
+</span><span style="color:#5597d6;">func</span><span>()
+</span><span style="color:#5597d6;">func</span><span>()
+</span><span style="color:#b3933a;">...
+</span></code></pre>
+<ul>
+<li>
+<p>any advice on how to detect memory leaks (that are small when testing but may increase later when running with real data) in python?</p>
+<ul>
+<li>Test the code in loops, repeatedly calling it.</li>
+<li>Plot your memory usage over time
+<ul>
+<li>yes, memory profiling. ideally at the end it should be back to zero
+<ul>
+<li>is there specific tools for memory profiling?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Any suggestion on detecting memory leaks in CUDA? I know about <code>cuda-memcheck</code> (run with <code>cuda-memcheck [memcheck_options] app_name [app_options]</code>). Are there other/better alternatives?</p>
+<ul>
+<li>Looking around, I found <a href="https://github.com/dpc-grindland/Cudagrind">Cudagrind</a>, it hasn't been updated for many years though. Would be nice to see what else can be used.</li>
+</ul>
+</li>
+<li>
+<p>Is pair programming sitting down together and work it out together? If yes, it was super fun! A scientist and a software engineer. I guess we learned a lot from each other.</p>
+<ul>
+<li>Can be but usually refers to &quot;collaborating&quot; in solving problems or implementing solutions (my understanding)
+<ul>
+<li>My understanding is original, two people and one set of code, one editor.</li>
+</ul>
+</li>
+<li>there is also &quot;mob programming&quot;: one person types, many others (Twitch :P) are in the same room and navigate, and people give the keyboard to others after some time
+<ul>
+<li>haha, yes</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>RSH live from Nordic RSE: https://nordic-rse.org/events/2020-online-get-together/</p>
+</li>
+</ul>
+<p>Thank you! :) Learned a lot and will start debugging now</p>
+<p>Thanks for another great episode of RSHour! :heart: +1 :+1:</p>
+<p>Thank you :-)</p>
+<h3 id="notes-we-used-when-planning-this-session">Notes we used when planning this session</h3>
+<h4 id="introduction">Introduction</h4>
+<ul>
+<li>This is a really challenging topic to talk about, since there are
+<ul>
+<li>So many ways to go wrong</li>
+<li>So many ways to fix it</li>
+<li>No one right answer, it's more of an art than a science</li>
+</ul>
+</li>
+<li>https://en.wikipedia.org/wiki/List_of_software_bugs</li>
+</ul>
+<h4 id="types-of-bugs">Types of bugs</h4>
+<ul>
+<li>syntax errors</li>
+<li>runtime errors
+<ul>
+<li>Hard errors that are clearly reported as errors</li>
+</ul>
+</li>
+<li>results are wrong (like the kelvin example)</li>
+<li>Heisenbug: trying to study the bug changes it, e.g. adding print statements changes timings.  Memory locations change.  etc
+<ul>
+<li>Compiled with or without optimizations.  Stepped through with debugger to eliminate race conditions.</li>
+<li>you add a print statement and bug goes away: memory bugs</li>
+</ul>
+</li>
+<li>schrödinbug: it never worked, but you never noticed it.</li>
+<li>Local (clearly identify to one line) vs systematic (a property of the whole system)</li>
+</ul>
+<h4 id="approach-to-debugging">Approach to debugging</h4>
+<ul>
+<li>Reality not as fancy as you might thing</li>
+<li>Take a break</li>
+<li>Reducing size of the problem
+<ul>
+<li>Make it run faster, but still produce the bug (smaller input data, less iterations, etc)</li>
+<li>Removing degrees of freedom: Disable optional features until you get straight to it</li>
+<li>i thought efficient debugging is like efficient tree-search of possibilities &quot;inside our head&quot;: eliminating as big branches as possible as early as possible.</li>
+</ul>
+</li>
+<li>Finding the point of the problem
+<ul>
+<li>bisection
+<ul>
+<li>git bisect: when you have good version control, when was it introduced?</li>
+<li>Turn off optional features and see if the problem still occurs</li>
+<li>&quot;Deactivating code&quot;/skipping code to locate memory problems: making the result wrong but making the code not crash</li>
+</ul>
+</li>
+<li>git grep</li>
+<li>it can be useful to make the code produce &quot;not scientifically meaningful&quot; results for the sake of debugging</li>
+</ul>
+</li>
+<li>Now, you roughly know the point.  What now?
+<ul>
+<li>Reading error messages
+<ul>
+<li>How to approach stack traces and finding the problem</li>
+<li>How to pick the interesting part out of error message: read from both the top and the bottom</li>
+<li>internet-searching solutions with the right error message</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Turn it into a unit test or example script, that is self-contained
+<ul>
+<li>Can you make the example portable to someone else to try (git, conda, containers, etc?)</li>
+<li>This is basically a prerequisite to asking someone for help</li>
+</ul>
+</li>
+<li>Asking for help
+<ul>
+<li>When to ask for help (after you have narrowed it down)</li>
+<li>What to include when asking (not &quot;it doesn't work&quot;)</li>
+<li>what to do if it crashes/fails in somebody else's code (library or package)</li>
+</ul>
+</li>
+</ul>
+<h4 id="preparing-code-for-debugging">Preparing code for debugging</h4>
+<ul>
+<li>various points from Zen of Python, for example &quot;Errors should never pass silently / unless explicitly silenced&quot;, but there is more relevant in it too</li>
+<li>print debugging</li>
+<li>writing good error messages, catching errors the right way
+<ul>
+<li>don't trap all errors and ignore them</li>
+</ul>
+</li>
+<li>logging and verbosity
+<ul>
+<li>shell: set -x</li>
+<li>-v, -q</li>
+<li>stdout vs stderr for printing stuff</li>
+<li>logging module <strong>show example (rkdarst)</strong>
+<ul>
+<li>Everything defined in levels: debug, info, warning, error, critical</li>
+<li>https://github.com/NordicHPC/envkernel/blob/master/envkernel.py</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>assertions, programming for safety
+<ul>
+<li>shell script strict modes
+<ul>
+<li>set -e ; set -u ; set -o pipefail .   often done as set -euo pipefail</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>debug compile flags</li>
+</ul>
+<h4 id="debuggers-and-debugging-tools">Debuggers and debugging tools</h4>
+<ul>
+<li>&quot;debuggers do not remove bugs, they run your code in slow motion&quot;</li>
+<li><strong>gdb/pdb type interface (AF)</strong>, let it run until error happens
+<ul>
+<li>demo-debugging/fortran/bugs</li>
+<li>explicit error to make it start</li>
+</ul>
+</li>
+<li>print statements
+<ul>
+<li>Useful as starting point</li>
+<li>Maybe use logging module instead?</li>
+</ul>
+</li>
+<li>jupyter: <strong>%%debug (RD)</strong></li>
+<li>import IPython ; IPython.embed()   or   or from code import interact; interact()</li>
+<li><strong>Valgrind and memory bugs (Radovan)</strong>
+<ul>
+<li>C/C++ example with 3 memory bugs (use after free, memory leak, out of bounds access)</li>
+</ul>
+</li>
+<li><strong>debugging through IDE</strong>; remote debugging</li>
+<li><strong>variable inspector (RD)</strong></li>
+</ul>
+<h4 id="bonus-if-we-have-time">Bonus if we have time</h4>
+<ul>
+<li>git bisect example</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

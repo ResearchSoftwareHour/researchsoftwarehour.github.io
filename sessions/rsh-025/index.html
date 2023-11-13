@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 25: Intro to GitHub" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 25: Intro to GitHub</h1>
+  <i>What is GitHub and why would you use it?</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=oKdh8IC5Y_A&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h1 id="intro-to-github">Intro to GitHub</h1>
+<p>This event was put on with support of the <a href="https://www.aalto.fi/en/services/data-agents-and-data-advisor">Aalto Research Services
+open science
+team</a>.</p>
+<h2 id="progression-of-use-cases-and-topics">Progression of use cases and topics</h2>
+<p>GitHub is used for:</p>
+<ul>
+<li>things for yourself (central location, backup, sharing, organizing, easy moving to later levels)</li>
+<li>things for small groups (organizations, shared repos with or without PRs, etc)</li>
+<li>things for community (outside collaborators, discussion, PRs, etc)</li>
+</ul>
+<p>Where are you?  Where do you want to be?</p>
+<ul>
+<li>questions</li>
+</ul>
+<h2 id="quick-survey">Quick survey</h2>
+<p>I have used git before:</p>
+<ul>
+<li>yes: IoooooOooooIoooo</li>
+<li>no: Ooooooo0oooo</li>
+</ul>
+<p>In the past I have already opened an issue on GitHub:</p>
+<ul>
+<li>yes: oIIoooIII</li>
+<li>no: OoOoooooooooooooo0ooo</li>
+</ul>
+<p>In the past I have already creaded a pull request on GitHub (or merge request on GitLab):</p>
+<ul>
+<li>yes: ooooIooIo</li>
+<li>no: oOooooooooooooooo</li>
+</ul>
+<hr />
+<h2 id="what-is-git">What is git?</h2>
+<ul>
+<li><strong>Version control</strong>
+<ul>
+<li>Track changes</li>
+<li>Inspect history</li>
+<li>Work together</li>
+</ul>
+</li>
+<li>Basically a requirement for any kind of serious programming work</li>
+<li>But also useful for others.</li>
+<li><em>This talk is not about git: we assume you use it already</em></li>
+<li>tracks code, manuscripts, theses, etc.</li>
+</ul>
+<p>Example: https://github.com/bast/pr-exercise</p>
+<ul>
+<li>
+<p>Demo:</p>
+<ul>
+<li>vim README.md</li>
+<li>git diff</li>
+<li>git add</li>
+<li>git commit -m &quot;Adding a line during the stream&quot;</li>
+</ul>
+</li>
+<li>
+<p>Is gitlab the same as github?</p>
+<ul>
+<li>GitLab does the same things as GitHub, but it is a separate program.</li>
+<li>The biggest difference is that you can run your own GitLab on a server</li>
+<li>We'll get to this in a bit.</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-github">What is GitHub?</h2>
+<ul>
+<li>Commercial company</li>
+<li>... hosting a <strong>web repository, GitHub</strong></li>
+<li>Very good free services for open-source projects.</li>
+<li>vs Gitlab
+<ul>
+<li>Gitlab is open-source equivalent</li>
+<li>Many universities have their own (e.g. version.aalto.fi, source.coderefinery.org)</li>
+<li>For the most part, usage is the same.</li>
+</ul>
+</li>
+<li>Interfaces: take your pick
+<ul>
+<li>Git command line</li>
+<li>GitHub desktop and apps</li>
+<li>GitHub web interface</li>
+</ul>
+</li>
+<li>Cost</li>
+<li>GitHub ownership</li>
+</ul>
+<p>Question: Are there command line interfaces for GitHub that work on Windows?</p>
+<ul>
+<li>For git itself, Git for Windows. / gitbash https://gitforwindows.org/</li>
+<li>https://cli.github.com/
+<ul>
+<li>This has some nice extra features (not just for Windows btw)</li>
+</ul>
+</li>
+</ul>
+<p>I don't know if it's changed, but last time I checked, the GitHub Desktop was pretty unstable in Windows.</p>
+<h2 id="basic-features-pushing-and-pulling">Basic features: pushing and pulling</h2>
+<p>Let's demo the basics of GitHub.</p>
+<ul>
+<li>You connect to other servers via <strong>git remotes</strong>, controlled with <code>git remote</code>.</li>
+<li>Once a remote is set, you <code>git push</code>, <code>git fetch</code>, and <code>git pull</code></li>
+<li>It isn't our goal to go in detail about the technical implementation: you can read this later.  (we'll talk about why instead)</li>
+</ul>
+<p>Quick demo:</p>
+<ul>
+<li>New repository</li>
+<li>Create repository on GitHub</li>
+<li>Add remote</li>
+<li>Push to GitHub</li>
+</ul>
+<p>demo commands:</p>
+<ul>
+<li>git log</li>
+<li>git remote -v</li>
+<li>git push origin master</li>
+<li></li>
+</ul>
+<h2 id="git-for-small-groups">Git for small groups</h2>
+<ul>
+<li>The next level is using GitHub among a research group, or something similarly small.</li>
+<li>To be a group, you need to work together.  To work together, you need a place to do so.</li>
+<li><strong>Organizations</strong></li>
+<li><strong>User management</strong>: share among a group</li>
+<li><strong>Issues</strong>: Track things to do</li>
+<li><strong>Pull requests</strong>: Code review</li>
+</ul>
+<p>Question: I work with Jupyter Nitebooks. Is there an easy way to integrate those into github? thanks</p>
+<ul>
+<li>great question! I use this locally (nice tool to visually diff and merge notebooks): https://nbdime.readthedocs.io/ but I don't know of a good way to see nice diffs directly on GitHub. I anticipate that GitHub is working on that. Anybody knows some solution?</li>
+<li>Yeah, diffs not so good right now.  I haven't heard of much beyond that, but many people do use git for notebooks, just realize that diffing and merging isn't so easy.
+<ul>
+<li>the nbdime is great locally for this but would be nice to see it directly in pull requests +1</li>
+</ul>
+</li>
+</ul>
+<h2 id="community-projects-the-next-level">Community projects: the next level</h2>
+<ul>
+<li>So you have your own group working well.  What comes next?  The community</li>
+<li>There is little cost to accepting contributions from others.</li>
+<li>Minimizing information overload in big community projects.</li>
+</ul>
+<h2 id="important-considerations">Important considerations</h2>
+<ul>
+<li>Importance of a license file
+<ul>
+<li>Don't accept contributions until you get this clarified</li>
+</ul>
+</li>
+<li>How to contribute</li>
+<li>Issue templates, pull request templates, etc.</li>
+<li>Code of conduct</li>
+</ul>
+<p>Comment:</p>
+<ul>
+<li>It's actually important that issues are not generally viewed as &quot;problems&quot; but more as improvement ideas, etc. cause otherwise some people tend to try to avoid having issues listed.</li>
+</ul>
+<h2 id="long-term-archiving-and-zenodo">Long term: archiving and Zenodo</h2>
+<ul>
+<li>GitHub is the de-facto source for open research software (for better or for worse)</li>
+<li>Can you cite it in a paper?</li>
+<li>Can you expect GitHub to be around in 20 years?
+<ul>
+<li>More likely than your university's Gitlab or personal webpage.  (But does your user still exist?)</li>
+</ul>
+</li>
+<li>For permanent storage, connect to Zenodo and publish releases.
+<ul>
+<li>Zenodo is a EU-funded repository of science.</li>
+</ul>
+</li>
+</ul>
+<p>Video demo of Zenodo link: https://www.youtube.com/watch?v=Atp-GmhS7gY</p>
+<h2 id="actions">Actions</h2>
+<ul>
+<li>GitHub Actions are continuous integration: they can run tests on every commit.</li>
+<li>Automatic testing on changes: great for making sure things work!</li>
+<li>Automatic deployment, for example push to git and a website gets updated.</li>
+</ul>
+<h2 id="what-s-next">What's next?</h2>
+<ul>
+<li>CodeRefinery courses: https://coderefinery.org/lessons/
+<ul>
+<li>git-intro (by yourself)</li>
+<li>git-collaborative (GitHub + pull requsets)</li>
+<li>Automated testing: GitHub Actions</li>
+<li></li>
+</ul>
+</li>
+<li>Research Software Hour: https://researchsoftwarehour.github.io/</li>
+<li>Aalto Research Software Engineers: https://scicomp.aalto.fi/rse/</li>
+<li>Coderefinery chat: https://coderefinery.zulipchat.com/</li>
+</ul>
+<h2 id="feedback">Feedback</h2>
+<p>One good thing about today:</p>
+<ul>
+<li>The demos were helpful! Thank you!</li>
+<li>Great introduction! Thank you!</li>
+<li>.</li>
+<li>.</li>
+<li>.</li>
+</ul>
+<p>One thing to be improved:</p>
+<ul>
+<li>.</li>
+<li>.</li>
+<li>.</li>
+<li>.</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

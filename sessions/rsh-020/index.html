@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 20: Data preparation and release" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 20: Data preparation and release</h1>
+  <i>About data management plans, tidy data format, and FAIR data release</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=rZZUwzsLtO8&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="part-1-data-management-plans">Part 1: data management plans</h3>
+<ul>
+<li>Why DMPs?</li>
+<li>What is wrong with historical process?</li>
+<li>I guess this came from the open scinece movement, pressuring you to </li>
+<li>should a DMP be fully copy-paste from best practices, by sort-of default?</li>
+<li>What should you actually do?
+<ul>
+<li>First, learn the best way to handle your data</li>
+<li>Then, write a plan for funder</li>
+<li>Hopefully, use the plan.  But as they say, plans are useless but planning es essential</li>
+</ul>
+</li>
+<li>How do you typically do them (what does your university insturctions say?)</li>
+</ul>
+<h3 id="part-2-tidy-data">Part 2: tidy data</h3>
+<ul>
+<li>I have 2 slides as example of this, maybe I manage to create a slide-less example</li>
+<li>Discuss how to store tabular data
+<ul>
+<li>excel </li>
+<li>standard formats: csv, numpy array, netcdf</li>
+<li>pandas</li>
+</ul>
+</li>
+<li>Discuss problems with non-tidy data storage</li>
+<li>Tidy data: <a href="http://vita.had.co.nz/papers/tidy-data.pdf">H. Wickham, &quot;Tidy Data&quot;</a></li>
+<li>Ddvantages/disadvantages of tidy data</li>
+<li>Metadata</li>
+</ul>
+<h3 id="part-3-release">Part 3: release</h3>
+<ul>
+<li>Findable
+<ul>
+<li>Does someone know your data exists only if they finds your paper first?  Or can they search directly for it?</li>
+<li>What's the minimum required to find it?</li>
+<li>General search engine?  Domain-specific search that understands the concepts of the data?
+<ul>
+<li>RD: NOMAD repository</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Accessible
+<ul>
+<li>You can somehow request access to it</li>
+<li>It's in a place that won't disappear later</li>
+<li>In a good repository</li>
+<li>Or maybe, it's in some isolated permanent place, disconnected from a searchable repository</li>
+<li>re3data.org - find a repository</li>
+<li>Is your own website acceptable?</li>
+<li>Is github acceptable?</li>
+</ul>
+</li>
+<li>Interoperable
+<ul>
+<li>If someone can get value by combining it with other data, can they?</li>
+<li>This is mostly covered in 'preparing data for release'</li>
+<li>If there are no existing standards, you can't make it interoperable</li>
+<li>There may be standards, but they may not be common enough to be useful.  It depends on what your particular case.</li>
+<li>Or it may not be worth putting that much effort.</li>
+</ul>
+</li>
+<li>Reusable
+<ul>
+<li>Someone has permission to reuse it</li>
+<li>Licensing</li>
+</ul>
+</li>
+</ul>
+<h3 id="comments-questions">Comments/questions</h3>
+<p>Main Finnish national funding agency decided to drop DMP from grant applications. I reviewed grants from NL and AT national grant agencies and there was no DMP to review.</p>
+<p>Given the perserverence of (beginning) researchers just using an external drive for their project. Perhaps, the questions on a DMP should not be so much about <em>which</em> data, but more:</p>
+<ul>
+<li>Where are you going to store the data?</li>
+<li>Who will have access to this drive?</li>
+<li>What will you do when the drive fails?</li>
+<li>What will you do when you accidentally delete something important?</li>
+<li>How will you find your data again in 5 years time?</li>
+<li>How will you share the data?</li>
+</ul>
+<p>Does this DMP take the place of README files that I would normally put this in?</p>
+<p>&quot;Funny&quot; anecdote from Twente University in the NL: all network drives were in a single building. The building manager felt unappreciated and set fire to the building with the intention to become the hero that put out the fire. He couldn't put out the fire. All emails, all researcher and student data, everything was gone, for the entire university. The backup was located in the same building. This was one year before I entered the university as a student :)</p>
+<ul>
+<li>
+<p>wow</p>
+</li>
+<li>
+<p>Tidy data</p>
+<ul>
+<li>https://en.wikipedia.org/wiki/Tidy_data</li>
+<li>http://vita.had.co.nz/papers/tidy-data.pdf</li>
+</ul>
+</li>
+<li>
+<p>could you say that if you need a custom parser, it's not tidy data?</p>
+<ul>
+<li>i think it still can be tidy data but if i need to adapt the parser every few weeks as new data is coming in, then it was perhaps not in &quot;tidy&quot; format</li>
+</ul>
+</li>
+<li>
+<p>Just FYI: <a href="https://zenodo.org/record/4506279#.YEE70ZP0nvV">A webinar by ELIXIR Norway</a> was super useful. Of course the contents focus on very much life-science field and Norwegian context (it was before and for NCR funding application)</p>
+<ul>
+<li>thanks!</li>
+</ul>
+</li>
+<li>
+<p>https://www.re3data.org/</p>
+</li>
+<li>
+<p>Was <a href="https://fairsharing.org/">FAIRSharing</a> mentioned? Was recommended in FAIR DS course by NeIC.</p>
+</li>
+<li>
+<p><a href="https://librarycarpentry.org/Top-10-FAIR//2018/12/01/research-software/">TOP 10 FAIR DATA &amp; SOFTWARE THINGS Research Software</a> looks also useful.</p>
+</li>
+<li>
+<p>Maybe relevant: https://elixir-europe.org/events/webinar-software-management-plans</p>
+</li>
+<li>
+<p>Large scale facilities these days demand to provide a DMP. The user has to provide a plan, who is going to analyse the data with what software and where. Is the infrastructure available?</p>
+</li>
+</ul>
+<h2 id="next-stream">Next stream</h2>
+<p>What should we talk about in two weeks?</p>
+<p>Possible topics: https://researchsoftwarehour.github.io/</p>
+<ul>
+<li>Python libaries, tricks in numpy, mpi4py. Data science maybe?
+<ul>
+<li>please tell us about your fav python libraries that we can highlight/ test out</li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 12: git-annex" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 12: git-annex</h1>
+  <i>high-level data management and synchronization</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=NKCBXOfyoyM&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="questions">Questions</h3>
+<ul>
+<li>
+<p>Would https://syncthing.net/ work for syncing home?</p>
+<ul>
+<li>Maybe. Syncthing handles each file individually so if you require folder consistency it's not the best option. As an example, it's not recommended to store git repositories in syncthing shared folders if they are being used from multiple locations simultaneously.</li>
+</ul>
+</li>
+<li>
+<p>It makes a symlink out of the file? What does that mean for general use?</p>
+<ul>
+<li>It's like having multiple names for the same file</li>
+<li>another usecase: same file which is really large and you don't want to fill the disk with multiple copies of the same thing (see also <a href="https://medium.com/@307/hard-links-and-symbolic-links-a-comparison-7f2b56864cdd">hardlink vs symlink</a>)</li>
+<li>yet another usecase: maybe your code always saves data to <code>data/</code>, but on one of your computers/servers, you might want to save it somewhere else (without changing code), you can then symlink <code>data/</code> on that computer to point to an external drive or wherever</li>
+<li>-&gt; Awesome, thanks for extensive answer and usage example !</li>
+</ul>
+</li>
+<li>
+<p>If the files are not stored in git, are there locations were we can store the files? (for free?)</p>
+<ul>
+<li>we will discuss that but to my limited knowledge git-annex can connect also to storage in the cloud by any of the cloud providers</li>
+<li>:heart: any key-value store can be used to store the data</li>
+</ul>
+</li>
+<li>
+<p>Is there any compatibility layer to use (for instance) storage provided by git-lfs via git-annex? (both GitHub and GitLab provide git-lfs integration)</p>
+<ul>
+<li>I don't know the answer but I will ask it in a moment ...
+- I saw git-lfs mentioned in the <a href="https://git-annex.branchable.com/special_remotes/git-lfs/">special remotes list</a>. So Yay!</li>
+</ul>
+</li>
+<li>
+<p>So in the current example, if someone would clone the repo, he gets the metadata but could not use the files?</p>
+<ul>
+<li>right, unless the person also has access to the storage of the actual files</li>
+<li>So to upload the actual files I would use 'git add/commit/..' instead of git annex?
+<ul>
+<li>In my understanding, no. But we will get back to that.</li>
+<li>You need to use git-annex commands. git commands will not touch git-annexed files. Git only sees the symlink.</li>
+</ul>
+</li>
+<li>or store them somewhere else and link them?</li>
+<li>yay magic!</li>
+</ul>
+</li>
+<li>
+<p>A word of caution, <code>git annex sync</code> also syncronizes the history of all git remotes. If one of the remotes is a github/gitlab repository that reacts to special keywords in commits (e.g. fixes #issue-number) issues can be automatically closed by accident. True story on gitlab.com.</p>
+<ul>
+<li>oh!</li>
+</ul>
+</li>
+<li>
+<p>Also <code>git annex web</code> if you can get there.</p>
+<ul>
+<li>what does it do? (in case we run out of time)
+<ul>
+<li>launches a web interface to manage remotes and synchronization</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>About encryption, if the repository is public, having the tokens/keys in the metadata would make little sense. Are there common approaches used for open projects with sensitive data?</p>
+</li>
+<li>
+<p>Related to the previous is encryption a requirement or entirely optional?</p>
+<ul>
+<li>optional. it can be none, shared, or public key</li>
+</ul>
+</li>
+<li>
+<p>great questions which we have discussed on coderefinery.zulipchat.com (chat stream #RSHour) just before this session. hopefully we will have time to discuss these here</p>
+<ul>
+<li>Ah I missed that one. Thanks!</li>
+</ul>
+</li>
+<li>
+<p>can you share the instructions on how to set this up on allas? This is awesome! I did not know that this was possible</p>
+<ul>
+<li>we will share instructions on this and attach them to the session notes on https://researchsoftwarehour.github.io/</li>
+<li>So, yes, this was quite hard because CSC doesn't provide generic instructions for Allas, so I had to reverse-engineer it
+<ul>
+<li>Get the allas_conf script: https://docs.csc.fi/data/Allas/accessing_allas/</li>
+<li>Install the other dependencies needed to make that work</li>
+<li>Run the script in <code>--mode=s3cmd</code>: <code>source allas_conf --mode=s3cmd</code></li>
+<li>edit <code>~/.aws/credentials</code> to <code>export</code> the environment variables, so that you can source it in the next step.</li>
+<li><code>source ~/.aws/credentials</code>.  This should set the environment variables <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code>.</li>
+<li>(Wonder why the above steps are so hard... why doesn't CSC provide a direct way to get those tokens?)</li>
+<li>The git-annex S3 special remote then uses the <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> (this is very clear from the docs)</li>
+<li><code>git annex initremote allas type=S3 encryption=shared host=a3s.fi bucket=ga-demo-2 protocol=https port=443</code>   (this is clearly documented in git-annex <a href="https://git-annex.branchable.com/special_remotes/S3/">here</a>, but was very hard to figure out what the Allas parameters are)</li>
+<li>Now, you have the <code>allas</code> special remote you can push/pull data from.</li>
+</ul>
+</li>
+<li>Allas also has a Swift interface, which git-annex can also use.</li>
+<li>There are also differences in how S3 and swift manage their tokens and authentication, so you actually have to make some choices before following the above instructions.  Consult with us and we can consider the possibilities.</li>
+</ul>
+</li>
+<li>
+<p>Out of curiosity: Do you have to pay for this cloud space or how does it work?</p>
+<ul>
+<li>in a way its free for Finnish Researchers ( you can apply for Billing units as the PI of a research project)
+<ul>
+<li>Thanks, not applicable to me. :-)</li>
+<li>not sure if you can apply for this when not from Finland. But I believe there is similar for many countries</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>does this use s3cmd in background? or swift or..?</p>
+<ul>
+<li>might use a haskell library for s3 stuff</li>
+</ul>
+</li>
+<li>
+<p>In this case, only people that also have access to the Allas bucket can access the data?</p>
+<ul>
+<li>right</li>
+</ul>
+</li>
+<li>
+<p>What is the largest file or largest amount of files/data you have stored in a single git-annex repository?</p>
+<ul>
+<li>limit with number of files seems to be limited by git</li>
+<li>size probably limited by the actual storage</li>
+<li>git-annex can do chunking</li>
+</ul>
+</li>
+<li>
+<p>If I already have lots of data in an Allas bucket, can I then also link it with my repository?</p>
+<ul>
+<li>Yes, via the &quot;import tree&quot; function.  I'm not yet an full expert in it, but the idea is you can export a view to a special remote (files/S3/etc) and re-import it.  It can somehow see what has changed.</li>
+<li>Commands that made it work:
+<ul>
+<li><code>git annex initremote tree importtree=yes exporttree=yes type=directory directory=/home/rkdarst/git/ga-demo-tree/ encryption=none</code></li>
+<li><code>git annex import master --from tree</code></li>
+<li><code>git merge tree/master</code></li>
+</ul>
+</li>
+<li>The special remote has to be set up as an <code>importtree=yes</code> / <code>exporttree=yes</code> remote, then <code>git annex import</code> and <code>git annex export</code> and get a normal view of files from it.</li>
+</ul>
+</li>
+</ul>
+<p>YES! So cool! :)</p>
+<p>Git annex is huge!!</p>
+<p>Yes please a blogpost would be great!</p>
+<p>Thanks everyone!</p>
+<p>Thanks for a nice stream!</p>
+<p>Thanks! Looking forward to tune in again :)</p>
+<p>Thank you very much. I am looking forward to more RSH sessions.</p>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

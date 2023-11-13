@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 22: Resolving Git conflicts" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 22: Resolving Git conflicts</h1>
+  <i>Git conflict resolution strategies</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=p03ebpjuRgA&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h1 id="git-conflicts">Git conflicts</h1>
+<h2 id="session-outline">Session outline</h2>
+<ul>
+<li>
+<p>What is a conflict in git</p>
+<ul>
+<li>example repository: https://github.com/ResearchSoftwareHour/demo-git-conflict</li>
+<li>is a conflict bad?</li>
+</ul>
+</li>
+<li>
+<p>How to understand conflicts</p>
+<ul>
+<li>graph on GitHub: https://github.com/ResearchSoftwareHour/demo-git-conflict/network</li>
+<li>graph on GitLab: https://gitlab.com/bast/demo-git-conflict/-/network/main</li>
+<li>git graph <code>$ git config --global alias.graph &quot;log --all --graph --decorate --oneline&quot;</code></li>
+<li>view your (&quot;ours&quot;) changes separately</li>
+<li>view their (&quot;theirs&quot;) changes separately</li>
+<li>when to expect a conflict:
+<ul>
+<li>two branches modified same portion of the code in two different ways</li>
+<li>one branch modified a file, another branch deleted the file</li>
+</ul>
+</li>
+<li>when not to expect a conflict
+<ul>
+<li>modify different portions of the same file</li>
+<li>one modification is ancestor of the other modification</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>How to minimize conflicts</p>
+<ul>
+<li>communication</li>
+<li>keep branches as focused as possible</li>
+<li>keep branches as short-lived as possible</li>
+<li>pull before you do new work</li>
+</ul>
+</li>
+<li>
+<p>Useful config</p>
+<ul>
+<li><code>$ git config --global merge.conflictstyle diff3</code></li>
+<li>I have in my .gitconfig:</li>
+</ul>
+<pre data-lang="cfg" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-cfg "><code class="language-cfg" data-lang="cfg"><span style="color:#668f14;">[merge]
+</span><span>    </span><span style="color:#5597d6;">conflictstyle </span><span style="color:#72ab00;">=</span><span> diff3
+</span><span>    </span><span style="color:#5597d6;">tool </span><span style="color:#72ab00;">=</span><span> meld
+</span><span style="color:#668f14;">[mergetool]
+</span><span>    </span><span style="color:#5597d6;">keepBackup </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">false
+</span><span style="color:#668f14;">[mergetool.meld]
+</span><span>    </span><span style="color:#5597d6;">useAutoMerge </span><span style="color:#72ab00;">= </span><span style="color:#b3933a;">true
+</span></code></pre>
+</li>
+<li>
+<p>Our general strategies</p>
+<ul>
+<li>Resolve it the classic way</li>
+<li>Decide &quot;these do the same thing&quot; and keep the more recent/active branch version</li>
+<li>Recognize that one branch is &quot;better&quot; and keep one of the two (see later: ours/theirs), maybe transplant few changes manually on top</li>
+</ul>
+</li>
+<li>
+<p>Locally</p>
+<ul>
+<li>example: we clone https://github.com/ResearchSoftwareHour/demo-git-conflict</li>
+<li>merge conflict resolution on command line</li>
+<li>git status and git diff in a conflicting merge</li>
+<li>most scary of the methods</li>
+<li>visual tools</li>
+</ul>
+</li>
+<li>
+<p>Ours/theirs strategy</p>
+<ul>
+<li>on all conflicting files<pre data-lang="bash" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#5597d6;">$</span><span> git merge</span><span style="color:#5597d6;"> -s</span><span> recursive</span><span style="color:#5597d6;"> -Xours</span><span> somebranch
+</span><span style="color:#5597d6;">$</span><span> git merge</span><span style="color:#5597d6;"> -s</span><span> recursive</span><span style="color:#5597d6;"> -Xtheirs</span><span> somebranch
+</span></code></pre>
+</li>
+<li>ours/theirs on only few files</li>
+</ul>
+</li>
+<li>
+<p>Conflict resolution on the web</p>
+<ul>
+<li>GitHub</li>
+<li>GitLab</li>
+</ul>
+</li>
+<li>
+<p>How to abort a conflicting merge</p>
+<ul>
+<li>a merge/rebase only modifies my current branch, never the other branch</li>
+<li>how to check whether it will conflict</li>
+</ul>
+</li>
+<li>
+<p>What is git rebase</p>
+<ul>
+<li>how a <code>git rebase</code> differs from a <code>git merge</code>: https://coderefinery.github.io/git-branch-design/01-rebase/</li>
+<li>rebase is not a free ticket out of a conflict: show how to resolve when rebasing</li>
+<li>conflicts appear separately, one by one, instead of all in one as in a merge conflict</li>
+</ul>
+</li>
+<li>
+<p>Other strategies</p>
+</li>
+</ul>
+<h2 id="questions-comments">Questions/comments</h2>
+<ul>
+<li>
+<p>Research Software Hour intro tune can be found at: https://soundcloud.com/w-m-vanvliet/research-software-hour-intro-tune</p>
+<ul>
+<li>Licence CC-BY, feel free to remix and make better</li>
+<li>Note: Quality is very bad because of how we played it, we need
+solve this for next time.</li>
+</ul>
+</li>
+<li>
+<p>Nice that you are back! My question is: Does this git graph command work always? Or does it need special packages on the host cluster, please?</p>
+<ul>
+<li>It's an alias, it adds some extra options to &quot;git log&quot; so always works.  Well, maybe not on very old git, but all the options are pretty old.</li>
+</ul>
+</li>
+<li>
+<p>Rebase means just to attach a branch somewhere else to the head, please? Or at least at another position of the main (?) branch, please?</p>
+<ul>
+<li>Yes, basically transplanting part to another.  As you might expect you can do lots of different things...</li>
+</ul>
+</li>
+<li>
+<p>Does it have to be always main or could it be also another branch?</p>
+<ul>
+<li>... like attach it to a different branch, different commit, etc.  There are <code>--onto</code> options, and <code>upstream</code> and <code>branch</code>. More than anything I learned about it by playing with it some.</li>
+<li>any branch, <code>git rebase somebranch</code> means move commits from my current branch which are not on <code>somebranch</code> behind <code>somebranch</code></li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

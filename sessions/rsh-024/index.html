@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 24: Computers for research 101" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 24: Computers for research 101</h1>
+  <i>The essential course that everyone skipped</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=WDVJEOtIdoQ&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h1 id="computers-for-research-101-the-essential-course-that-everyone-skipped">Computers for research 101: The essential course that everyone skipped</h1>
+<h2 id="questions-comments">Questions/comments</h2>
+<ul>
+<li>
+<p>Website with a couple of topics planned: https://researchsoftwarehour.github.io/</p>
+</li>
+<li>
+<p>It is good to count the episodes though maybe you can count seasons i.e. season 2, episode 1 ;)</p>
+<ul>
+<li>this is then S03E01 :-)
+<ul>
+<li>wonderful! may many seasons to come!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>converting line endings from Windows to Linux/Unix:</p>
+<ul>
+<li>dos2unix utility can do that</li>
+</ul>
+</li>
+<li>
+<p>htop (a flavor of the &quot;top&quot; command)</p>
+</li>
+<li>
+<p>BSD = berkeley systems distrbution, a form of unix</p>
+</li>
+</ul>
+<hr />
+<h2 id="our-session-notes">Our session notes</h2>
+<ul>
+<li>We won't talk about theory of computation, hardware, or stuff like that.</li>
+<li>Instead, we talk about the <strong>most common misconceptions</strong> when you start doing more serious work:</li>
+</ul>
+<h3 id="basics">Basics</h3>
+<ul>
+<li>Computers are not smart</li>
+</ul>
+<h3 id="data-and-files">Data and files</h3>
+<p>In many ways, how data works is more important than the computing</p>
+<ul>
+<li>A file is nothing but data - there is nothing special about it
+<ul>
+<li>file extension is just a hint, nothing more</li>
+</ul>
+</li>
+<li>Files are not tied to certain programs
+<ul>
+<li>The more programs that can open a file, the more useful it is</li>
+<li>Some file formats are designed to be hard to use by other programs - bad for you</li>
+<li>If a file is simple enough that you can process it yourself</li>
+</ul>
+</li>
+<li>Users and permissions
+<ul>
+<li>On your own computer, you may never realize this</li>
+<li>On a multi-user computer, you need <strong>users</strong> and <strong>permissions</strong></li>
+<li>Found with <code>ls -l</code></li>
+<li>In the background, they even exist on personal computers, phones, etc., but it is designed so that they never get in your way</li>
+</ul>
+</li>
+<li>Size
+<ul>
+<li>Obviously, files have a size</li>
+<li>What's an ideal file size, i.e. when is a file too big to handle and when are (many) small files too many to handle</li>
+</ul>
+</li>
+<li>Number of files
+<ul>
+<li>Number of files is rarely a concern on own computers
+<ul>
+<li>but can be a concern on shared resources which typically impose quota </li>
+</ul>
+</li>
+<li>For serious work, you might end up with lots of files (see: files you can control).  This usually isn't great</li>
+</ul>
+</li>
+<li>Files on different OSes
+<ul>
+<li>File systems (NTFS, ext, FAT etc), how about on phones?</li>
+<li>Line endings (CRLF and LF)</li>
+<li><a href="https://en.wikipedia.org/wiki/File_format#Magic_number">magic number</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MIME">MIME</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="computing">Computing</h3>
+<p>&quot;How computers work&quot; usually focuses on this</p>
+<ul>
+<li>What is a processor
+<ul>
+<li>Executes instructions</li>
+<li>We don't compete based on clock speeds anymore</li>
+<li>Newer ones tend to be more efficient (lower power, more instructions), thus faster</li>
+</ul>
+</li>
+<li>Parallel: doing multiple things at once
+<ul>
+<li>Parallel is <em>tricky</em></li>
+<li>Usually you try to use existing frameworks for certain strategies: mapping, numerical libraries, etc.</li>
+<li>Just because you have more processors doesn't mean you can use them</li>
+</ul>
+</li>
+<li>Concurrency vs parallelism</li>
+<li>Real scaling up: distributing strategies
+<ul>
+<li>multi-threading</li>
+<li>multi-process</li>
+<li>MPI</li>
+<li>Requirements to use a batch system</li>
+</ul>
+</li>
+<li>Amdahl's law
+<ul>
+<li>related: as you scale the system/problem, new/unexpected bottlenecks may appear, &quot;O(n2)&quot; </li>
+</ul>
+</li>
+</ul>
+<h3 id="networking">Networking</h3>
+<ul>
+<li>Schmidt's law: the network becomes the computer</li>
+<li>You need to be able to efficiently work across all computers on a network to take advantage of all tools available</li>
+<li>Server: provides functionality for clients that connect.
+<ul>
+<li>???</li>
+</ul>
+</li>
+<li>Can A connect to B?</li>
+<li>Networked data storage
+<ul>
+<li>absolutely transformative</li>
+<li>Makes it easy to transfer files</li>
+<li><strong>Mounting</strong> a filesystem makes it available as local files: saves you from even having to transfer files</li>
+<li>The more places data is available, the more useful it is</li>
+<li>Common cases: shared home directories.  shared project directories</li>
+</ul>
+</li>
+</ul>
+<h3 id="memory">Memory?</h3>
+<ul>
+<li>swapping</li>
+<li>memory leaks</li>
+<li>what is a memory corruption?</li>
+<li>what is a segfault?</li>
+<li>what is a core dump?</li>
+<li>memory often shows up as bottleneck once we increase system size (example: list comprehension vs generator in Python)</li>
+</ul>
+<h3 id="operating-systems-and-interfaces">Operating systems and interfaces</h3>
+<ul>
+<li>Windows, Linux, Mac</li>
+<li>These days, the differences between them are decreasing</li>
+<li>Graphical vs command line interface
+<ul>
+<li>Graphical: easy to get started or do new things, options presented to you</li>
+<li>Command line: much more powerful, but harder to find things</li>
+<li>web search + <code>man</code> to look up command options</li>
+</ul>
+</li>
+</ul>
+<h3 id="using-software">Using software</h3>
+<p>Clearly, you need to tell the computer what to do.</p>
+<ul>
+<li>Consumer programs: someone provides it</li>
+<li>Installing things is hard!
+<ul>
+<li>The fact that people can install software onto own computers has been slowly developed over many years</li>
+<li>But also means it is tightly controlled: not good for </li>
+</ul>
+</li>
+<li>Installing is often possible for everybody
+<ul>
+<li>EasyBuild/Spack</li>
+<li>Containers</li>
+<li>Often different on laptop and cluster </li>
+</ul>
+</li>
+</ul>
+<h3 id="programming">Programming</h3>
+<ul>
+<li>How to read manuals</li>
+<li>Is the worst kind of error is something that appears to work, but is wrong?  Be safe and &quot;fail fast&quot;</li>
+<li>It is very helpful to know how to make things not horribly inefficient.  It is rarely important to know how to make things as fast as possible.
+<ul>
+<li>making things more efficient (in time and space) often makes code more complicated (more difficult to understand for others)</li>
+</ul>
+</li>
+<li>Why is programming so important?
+<ul>
+<li>You often need to do things which no one else has done</li>
+<li>You need to do the same thing over and over again</li>
+<li>Maybe you can get by with less knowledge, but it is much less efficient.</li>
+</ul>
+</li>
+<li>&quot;Fortran is always fast, Python is always slow&quot;</li>
+<li>&quot;one language is better than another&quot; - on choosing languages</li>
+<li>Can programming be creative?
+<ul>
+<li>What do you like most about programming? </li>
+</ul>
+</li>
+</ul>
+<h3 id="development-environments">Development environments</h3>
+<ul>
+<li>GUI vs console</li>
+<li>ssh</li>
+<li>text editor</li>
+</ul>
+<h3 id="debugging">Debugging</h3>
+<ul>
+<li>Don't give up as soon as you see an error</li>
+<li>Read carefully from both top and bottom
+<ul>
+<li>or from bottom to top sometimes </li>
+</ul>
+</li>
+<li>Try to identify the key lines and do a web search
+<ul>
+<li>warnings vs errors </li>
+</ul>
+</li>
+<li>If you aren't sure, just try it.  if it breaks, you can try to fix it and then you get more</li>
+<li>Change one thing at a time</li>
+<li>When is a debugger useful?</li>
+<li>Try to halve/reduce the search space</li>
+<li>Go for a walk</li>
+</ul>
+<h3 id="data-management">Data management</h3>
+<ul>
+<li>when you start doing serious work, don't organize by meeting/assignment: you need something that lasts a long time.</li>
+</ul>
+<h3 id="security">Security</h3>
+<p>Information security is a big topic, but is more than you think.</p>
+<ul>
+<li>Confidentiality
+<ul>
+<li>Prevent access to information</li>
+<li>What you usually think of for &quot;security&quot;</li>
+</ul>
+</li>
+<li>Integrity
+<ul>
+<li>Is the information correct?</li>
+<li>Example: change hospital records to remove information on allergies to medicines</li>
+<li>Example: misinformation</li>
+</ul>
+</li>
+<li>Availability
+<ul>
+<li>Can you access information when you need it?</li>
+<li>Example: Lose the laptop that has your thesis on it.
+<ul>
+<li>is this a good moment to talk about backup? </li>
+</ul>
+</li>
+<li>This is perhaps the most common security problem in research!  We have seen so many times people having horribla</li>
+</ul>
+</li>
+</ul>
+<p>Email</p>
+<ul>
+<li>Phishing: don't believe anything that comes to you, unless you have some particular reason to expect it.  If someone asks you to do something, you can always just not.</li>
+</ul>
+<h3 id="how-you-learn">How you learn</h3>
+<p>How do you learn all of this?</p>
+<ul>
+<li>try it, if you break then fix it and you learned two things
+<ul>
+<li>most really dangerous things are clear</li>
+</ul>
+</li>
+<li>trying to solve a real problem instead of a &quot;hello world&quot; example
+<ul>
+<li>maybe more motivating</li>
+<li>once you get it to work you solved a real problem and you learned something new </li>
+</ul>
+</li>
+<li>Reading documentation
+<ul>
+<li>tutorials</li>
+<li>reference</li>
+<li><a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a></li>
+</ul>
+</li>
+<li>Follow or get involved with other projects
+<ul>
+<li>Try contributing some</li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="Research Software Hour" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <div class="ui stackable grid">
+
+    <div class="eight wide column">
+      <h2 class="ui purple header" id="fonts">#ResearchSoftwareHour</h2>
+      <hr>
+      <div class="small-buffer">
+        <p><strong>Research Software Hour</strong> is an online stream/show about scientific computing and
+research software.  It is designed to provide the skills typically picked up
+via informal networks: every few weeks, we do some combination of exploring new
+tools, analyzing and improving someone's research code, and
+discussion.  Think of it as the &quot;fireside chat&quot; of scientific computing.</p>
+<p>Watchers can take part by suggesting ideas, contribute code or
+problems to discuss on stream, or even joining to directly be a part
+of the show.</p>
+<p>We hope to resume <del>in Spring 2022</del> early 2024.</p>
+<h2 id="upcoming-shows">Upcoming shows</h2>
+<ul>
+<li>Working with SSH</li>
+<li>Lessons from starting a RSE group at a university</li>
+<li>How to organize software/data in a new research group</li>
+<li>How to manage code on a research-group level (for group leaders, how to prevent everyone from doing their own things)</li>
+<li>How to use SSH and GPG keys (we all need them sooner or later, it is &quot;never&quot; taught, and documentation is often not adapted to non-experts)</li>
+<li>Licensing and sharing: what do you need to know in practice (e.g. How to agree on code and licensing)</li>
+<li>Shell: advanced tricks we use</li>
+<li>Testing</li>
+<li>Publishing and releasing software.  Making your code ready for
+publication in <a href="https://joss.theoj.org/">Journal of Open Source Software</a></li>
+<li>Renv / Julia environment reproducibity</li>
+<li>Our favourite R libraries</li>
+<li>Desktop to cluster</li>
+<li>Cluster: working efficiently</li>
+<li>Strategies to parallelize a code</li>
+<li>Writing parallel code</li>
+<li>Finding and solving memory bottlenecks, especially in Python</li>
+<li>How to run a Python web service or in other words: what to do when you need more than a static website?</li>
+<li>Containers</li>
+</ul>
+
+      </div>
+      <div class="top-buffer">
+      </div>
+    </div>
+
+    <div class="eight wide column">
+      <h2 class="ui purple header" id="fonts">Sessions</h2>
+      <hr>
+
+      <div class="ui purple floating message">
+        <p>
+          We are soon back with more shows
+          at <a href="https://www.twitch.tv/RSHour">twitch.tv/RSHour</a>.
+        </p>
+      </div>
+
+      <a href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf" target="_blank">
+        <button class="ui labeled icon tiny button">
+          <i class="play icon"></i>
+          video archive
+        </button>
+      </a>
+
+      
+
+      <div class="ui divided items">
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2021-10-06
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-025/">RSH 25: Intro to GitHub</a>
+                    
+                      <br>
+                      <small>What is GitHub and why would you use it?</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=oKdh8IC5Y_A&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2021-09-08
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-024/">RSH 24: Computers for research 101</a>
+                    
+                      <br>
+                      <small>The essential course that everyone skipped</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=WDVJEOtIdoQ&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2021-05-20
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-023/">RSH 23: CodeRefinery workshop questions revisited</a>
+                    
+                      <br>
+                      <small>Answering&#x2F;discussing questions from a recent CodeRefinery workshop</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=mG3z4VB4Ess&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2021-05-06
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-022/">RSH 22: Resolving Git conflicts</a>
+                    
+                      <br>
+                      <small>Git conflict resolution strategies</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=p03ebpjuRgA&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2021-04-22
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-021/">RSH 21: OBS (Open broadcaster software)</a>
+                    
+                      <br>
+                      <small>OBS for teaching and other purposes.</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=L6Ab271_kB0&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2021-03-04
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-020/">RSH 20: Data preparation and release</a>
+                    
+                      <br>
+                      <small>About data management plans, tidy data format, and FAIR data release</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=rZZUwzsLtO8&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2021-02-18
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-019/">RSH 19: Working in shells and terminals</a>
+                    
+                      <br>
+                      <small>Our hacks and tricks in shells and terminals</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=uRepYmuHNws&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2021-02-04
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-018/">RSH 18: Why is software, data, etc. important?</a>
+                    
+                      <br>
+                      <small>The Zen of scientific computing</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=C2vi4EPX5Kc&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-12-02
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-017/">RSH 17: Rust for science</a>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=20e0cGBPe70&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-11-26
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-016/">RSH 16: Debugging</a>
+                    
+                      <br>
+                      <small>Debugging: we all do it, we are never taught it. How we approach it and some tools we use</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=a6zCiqX3058&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-11-19
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-015/">RSH 15: Containers for science</a>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=DYA-b6ca7jM&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-11-12
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-014/">RSH 14: How to tame the cluster</a>
+                    
+                      <br>
+                      <small>You&#x27;ve got code, you&#x27;ve got the cluster.  Now we connect them</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=5HN9-MW7Tw8&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-11-05
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-013/">RSH 13: Cluster etiquette</a>
+                    
+                      <br>
+                      <small>How and why computer clusters are used for work</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=NIW9mqDwnJE&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-10-29
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-012/">RSH 12: git-annex</a>
+                    
+                      <br>
+                      <small>high-level data management and synchronization</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=NKCBXOfyoyM&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-10-22
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-011/">RSH 11: Conda</a>
+                    
+                      <br>
+                      <small>Software and environment installation, management, and reproducibility</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=ddCde5Nu2qo&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-10-15
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-010/">RSH 10: Reproducibility</a>
+                    
+                      <br>
+                      <small>How to make research reproducible</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=aqzSmQVsVFQ&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-09-29
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-009/">RSH 9: How we start projects, our setups, how we backup ideas</a>
+                    
+                      <br>
+                      <small>Various practical tips</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=zNnONfdPjrg&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-09-22
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-008/">RSH 8: Command line arguments and running tasks in parallel</a>
+                    
+                      <br>
+                      <small>From small stuff to scriptable</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=3PCJSFaIo9U&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-06-09
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-007/">RSH 7: Packaging and distributing</a>
+                    
+                      <br>
+                      <small>You made it, how can others use it?</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=Gq8dKk9lK9A&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-06-02
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-006/">RSH 6: Testing</a>
+                    
+                      <br>
+                      <small>If it&#x27;s not tested, you can&#x27;t trust it</small>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=cIR9YigTzs4&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-05-26
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-005/">RSH 5: Interview with a research software engineer</a>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=WIYaXzXLLY4&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-05-19
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-004/">RSH 4: Workflows and documentation</a>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=REMGFdjwCr4&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-05-12
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-003/">RSH 3: More about dependencies, versioning, and documentation</a>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=RYYimW-Qj-4&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-05-05
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-002/">RSH 2: Code review and code dependencies</a>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=9CKf8_HwANQ&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="content">
+              <div class="ui stackable grid">
+                <div class="four wide column">
+                  <small>
+                    2020-04-28
+                  </small>
+                </div>
+                <div class="twelve wide column">
+                  <p>
+                    <a href="https://researchsoftwarehour.github.io/sessions/rsh-001/">RSH 1: Hello world</a>
+                    
+                    
+                      <a href="https://www.youtube.com/watch?v=ZMXaQcFSaW0&list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf"><i class="youtube red icon"></i></a>
+                    
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

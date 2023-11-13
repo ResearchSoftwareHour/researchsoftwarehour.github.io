@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 17: Rust for science" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 17: Rust for science</h1>
+  
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=20e0cGBPe70&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="warm-up-question-what-do-you-like-in-a-programming-language">Warm-up question: what do you like in a programming language?</h3>
+<ul>
+<li>tooling, documentation, community +1</li>
+<li>available packages/libraries</li>
+<li>clarity of code written in it</li>
+</ul>
+<h3 id="material-used-during-the-stream">Material used during the stream</h3>
+<ul>
+<li>https://github.com/dev-cafe/rust-demo</li>
+<li>https://github.com/annefou/rust-examples</li>
+</ul>
+<h3 id="rough-outline">Rough outline</h3>
+<ul>
+<li>About RSH</li>
+<li>Why Rust</li>
+<li>History of Rust</li>
+<li>Memory model</li>
+<li>Examples</li>
+<li>Running Rust on Binder</li>
+<li>Interfacing with other languages</li>
+</ul>
+<h3 id="questions-comments-resources">Questions/comments/resources</h3>
+<p>History:</p>
+<ul>
+<li>http://venge.net/graydon/talks/intro-talk-2.pdf</li>
+<li>The History of Rust: https://www.youtube.com/watch?v=79PSagCD_AY</li>
+</ul>
+<p>Tools written in Rust:</p>
+<ul>
+<li><code>exa</code>, <code>ripgrep</code>, <code>bat</code>, and <code>fd</code> written in Rust (you really want these tools!).</li>
+<li>Great overview of tools written in Rust: https://www.wezm.net/v2/posts/2020/100-rust-binaries/</li>
+</ul>
+<p>Questions:</p>
+<ul>
+<li>
+<p>How good is the multi-dimensional array and plotting functionality in Rust?
+(numpy, matplotlib equivalents)</p>
+<ul>
+<li>there are plotting libraries but what I have done until now is to plot in
+Python/R and let Rust to compute the csv data :-) not because Rust was bad
+at it but because I knew the Python/R better.</li>
+</ul>
+</li>
+<li>
+<p>Can you comment on where Rust stands right now with respect to the packages
+available that offer functionalities for scientific computing ?, for example,
+numpy, scipy equivalents, packages for machine learning, etc. Do you think it
+is sufficient for general scientific computing with what it provides out of
+the box? Assuming that it is a relatively new language, the packages/library
+will certainly grow over time but would like to know what is the current
+scenario.</p>
+<ul>
+<li>this is not really answering the question but I find the library ecosystem
+surprisingly rich. Still it's not yet on par with numpy and others but then
+a nice combination can be Python on top, orchestrating the input and output
+and libraries and Rust underneath for the &quot;heavy lifting&quot;.</li>
+<li>Thanks, that gives an insight, especially since Rust is primarily a systems
+language as I understand as of now. So, I can imagine that one would most
+often not need all the packages/libraries which can instead come from
+python as you mentioned, and Rust can make the whole application execute
+fast and offer a programming environment that is memory safe.</li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

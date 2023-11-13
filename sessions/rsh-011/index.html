@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 11: Conda" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 11: Conda</h1>
+  <i>Software and environment installation, management, and reproducibility</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=ddCde5Nu2qo&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="questions">Questions</h3>
+<ul>
+<li>
+<p>Thanks for the stream! From what I understood, a virtual environment created
+in conda with all the project dependencies installed in it can be exported
+to a single yml file called environment.yml. I wonder if this file can be
+distributed and anyone who wants to recreate the same virtual environment as
+the original developer, can do so. This will relieve others from having to
+even make use of requirements.txt or install dependencies one by one. But, I
+missed to notice if the size of the file is big and whether this approach of
+distributing your software scales well?</p>
+<ul>
+<li>Yes, you can share the environment.yml (and in fact, that is one of the main points!  we should have said that)</li>
+<li>the environment.yml file only has a list of software, not the actual software.  So it is always very tiny, basically one line per package installed.</li>
+<li>Thanks. I will also rewatch some sections of the stream to view the commands and the demo that you executed to clarify a few little things.</li>
+</ul>
+</li>
+<li>
+<p>What do you use inside a conda virtual environment to install packages - <code>conda install</code> or <code>pip install</code> ?, and do you have a suggestion or an experience to share? From what I've read in the Anaconda documentation, <code>conda install</code> is the reccomended approach but then it prevents you from generating a requirements.txt file in a pip compatible format. Although you can still share the environmet.yml so that conda users can replicate your environment, I believe in this case non-conda users are those to whom you will not be able to distribute your software. Would like to clarify this and find out if I have misunderstood anything here.</p>
+</li>
+<li>
+<p>Thank you for a very nice stream! It was very clear, easy to follow, and had a relaxed and cozy vibe. From the spectator side, it really felt like all three of you got a chance to speak and were naturally included to bring the discussion forward (something that even veteran hosts fail with frequently). Here are some feedback on minor things that could maybe improve the stream: (+1)</p>
+<ul>
+<li>The volume was very low (I made sure to check that my twitch volume was maximal). I had to almost maximize the volume in my OS (which gave quite a fright whenever other streams/applications would play sound). This could probably be solved by increasing the overall microphone/input gain in OBS or whatever streaming software is used. As a viewer, it is easier to lower the volume on a single stream, than everywhere else.</li>
+<li>Radovans sound was lower than Annes and Richards, but that would probably not be an issue if the above point was fixed (his volume was perfectly fine e.g. in the CodeRefinery workshop).</li>
+<li>The topic of the day could perhaps be added to the stream title, or alternatively the agenda added as a text overlay in the video (there are nifty plugins for this, and even tools in e.g. OBS)? I knew what the topic was thanks to an announcement in Zulip, but this could be really helpful for keeping up with what the discussion is about, especially for people who stumble upon the stream from elsewhere or join/rejoin in the middle of the discussion.</li>
+</ul>
+</li>
+</ul>
+<p>Thanks for your feedback!</p>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

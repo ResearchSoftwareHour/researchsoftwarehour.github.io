@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 18: Why is software, data, etc. important?" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 18: Why is software, data, etc. important?</h1>
+  <i>The Zen of scientific computing</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=C2vi4EPX5Kc&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="outline">Outline</h3>
+<h4 id="intro-to-rsh">intro to RSH</h4>
+<ul>
+<li>Who are we?</li>
+<li>What is RSH</li>
+<li>Who are we for? And who is this for?</li>
+<li>About our 2021 program: https://researchsoftwarehour.github.io/</li>
+</ul>
+<h4 id="intro-to-today">Intro to today</h4>
+<ul>
+<li>What we are doing today</li>
+<li>Who do we imagine you to be? (what does each person get?)
+<ul>
+<li>You may be a new or experienced researcher, working on things.</li>
+<li>You may have been directed here to get an overview of what you can improve.
+You may be working with someone who will guide you through this</li>
+<li>You may be a supervisor, who needs to ensure your students do good work</li>
+</ul>
+</li>
+</ul>
+<h4 id="the-zen-of-scientific-computing"><a href="https://scicomp.aalto.fi/scicomp/zen-of-scicomp/">The Zen of Scientific computing</a></h4>
+<ul>
+<li>For each topic:
+<ul>
+<li>Introduce it</li>
+<li>Give an example of it going wrong</li>
+<li>Give an example of it going right</li>
+<li>Discussion</li>
+<li>Where do we recommend someone go next?</li>
+</ul>
+</li>
+</ul>
+<h4 id="future">Future</h4>
+<ul>
+<li>About rest of RSH</li>
+<li>What's your future?</li>
+</ul>
+<hr />
+<h3 id="questions-comments">Questions/comments</h3>
+<p>Hey, yes it is good with all three of you :-)</p>
+<ul>
+<li>
+<p>Oh yes! I guess my coding style is far from industry standard XD and
+difficult to understand for anyone including me in the future ....</p>
+<ul>
+<li>haha. welcome!</li>
+</ul>
+</li>
+<li>
+<p>Nice paper: &quot;Good enough practices in scientific computing&quot; https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510</p>
+</li>
+<li>
+<p>do your arguments change if it is a one-time-code which is never published but you only describe its functionality in the paper? (including sanity tests using theoretical arguments) and which cannot be refactored in a general tool? And it is only used by one person?</p>
+<ul>
+<li>hmmm.... great question! I think I would call this research/test code (now
+that I understood the definition better)</li>
+<li>a one-time-code? I have never seen a code you use only once.</li>
+<li>this is the general theme of our research: you have a specialized problem
+where you program a tailored tool for. But it is not really adapting to
+more than this single scenario, even increasing parameters implies a
+combinatorial explosion</li>
+</ul>
+</li>
+<li>
+<p>When does research code become production code and how?</p>
+<ul>
+<li>as soon as it starts being used for research/publication? (unsure)</li>
+<li>&quot;Experiment(al) code&quot;?</li>
+</ul>
+</li>
+<li>
+<p>Also reminded me of https://xkcd.com/2347/</p>
+</li>
+<li>
+<p>Any &quot;Big data effort&quot;... run once, almost impossible to run again</p>
+<ul>
+<li>is it because of the data part? or the workflow part? or the compute resources needed?</li>
+<li>a bit of everything I'd say. Often things change halfway. The cost of
+recomputing is proportionally larger. Debugging is equally harder. A
+reproducibility challenge.</li>
+</ul>
+</li>
+<li>
+<p>Single person project - &quot;collaborating with your past self&quot;</p>
+<ul>
+<li>oh yes that's a great description</li>
+</ul>
+</li>
+<li>
+<p>Version control: add new level, web service for just yourself</p>
+</li>
+<li>
+<p>Packaged and published</p>
+<ul>
+<li>which is many layers. But it helps to use standard solutions for this instead of inventing a new one.</li>
+</ul>
+</li>
+<li>
+<p>Where do you place tools like mypy? static code evaluators?</p>
+<ul>
+<li>automated testing and also modular/reusable code development</li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

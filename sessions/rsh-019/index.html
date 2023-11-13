@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/img/logo-hashbang.ico">
+
+    <title>Research Software Hour</title>
+
+    
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://researchsoftwarehour.github.io/img/logo-hashbang-big.png" />
+    
+
+    
+      <meta name="description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+      <meta name="twitter:description" content="Online show discussing scientific computing and research software designed to
+provide the informal kind of skills you don&#x27;t learn academically.
+" />
+    
+
+    
+      <meta name="twitter:title" content="RSH 19: Working in shells and terminals" />
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="ui container bottom-buffer">
+      <div class="ui secondary pointing stackable menu">
+        <div class="right menu">
+          
+            <a class="item" href="/" id="fonts">Home</a>
+          
+            <a class="item" href="/about/" id="fonts">About</a>
+          
+            <a class="item" href="/topics/" id="fonts">Topics</a>
+          
+            <a class="item" href="/watch/" id="fonts">How to watch</a>
+          
+            <a class="item" href="https://twitch.tv/RSHour" id="fonts">twitch.tv&#x2F;RSHour</a>
+          
+        </div>
+      </div>
+
+      <div class="top-buffer">
+        
+  <h1>RSH 19: Working in shells and terminals</h1>
+  <i>Our hacks and tricks in shells and terminals</i>
+
+  <p><a href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=uRepYmuHNws&amp;list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">Video <i class="youtube red icon"></i></a></p>
+
+  <h2>Collaborative notes taken during the session</h2>
+
+  
+    <h3 id="questions-comments">Questions/comments</h3>
+<ul>
+<li>
+<p>Intro to shell (and HPC): https://youtube.com/playlist?list=PLZLVmS9rf3nN_tMPgqoUQac9bTjZw8JYc</p>
+</li>
+<li>
+<p>Will you also show some tricks for macOS users?</p>
+<ul>
+<li>Anything particular that you would like to know more about or see? (I think we use Linux and Windows ...)
+<ul>
+<li>No, because I came to learn :-)
+<ul>
+<li>Hopefully we will show useful things but maybe a watcher who uses macOS can also comment?</li>
+</ul>
+</li>
+<li>Mac user here: what works for Linux is basically also going to work on Mac, or at least I still have not found something that wouldn't work on both :) [however x11 is not preinstalled, so you need Xquartz]
+<ul>
+<li>Yes, so far I have not really discovered anything that only worked on Mac. Ah, okay, I get X11 via Xcode.
+<ul>
+<li>I personally don't want to install xcode because it's an elephant :)
+<ul>
+<li>I realised! I will have a look for Xquartz. Thank you!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>does X11 forwarding require any setup/installation on your side?</p>
+<ul>
+<li>seems like no, nothing special required</li>
+<li>Make sure x11-Forwarding box is ticked (it is by default) in Advanced SSH settings</li>
+</ul>
+</li>
+<li>
+<p>Can you switch on / off $CDPATH? Or do I have to change it each time.</p>
+<ul>
+<li>Richard will answer later (Radovan: I am not using this yet)</li>
+</ul>
+</li>
+<li>
+<p>Many shells exist</p>
+<ul>
+<li>Bash, Fish, zsh, csh, tcsh, ...</li>
+<li>xonsh https://xon.sh/</li>
+<li>elvish https://elv.sh/
+<ul>
+<li>hmm! new to me</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Could you maybe comment on what are the advantages/disadvantages of the various shells? So far, I have only used bash. macOS offers now to switch to zsh.</p>
+<ul>
+<li>great question, we will come back to this
+<ul>
+<li>Thank you.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>When I type in bash echo $CDPATH I get only an empty line. Did Richard setup this $CDPATH?</p>
+<ul>
+<li>yes I think he set it in .bashrc (?) where one can set variables and aliases</li>
+<li>You can try it out by defining CDPATH to one of your folder.</li>
+</ul>
+</li>
+<li>
+<p>Many shells: is there a fast way to switch between them (e.g. I am on bash and then want to go to fish)? I guess by just typing the shell name?</p>
+<ul>
+<li>yes. I use fish but sometimes need bash and then I type &quot;bash&quot; and enter and I am in bash. And vice versa. Alternative: if this is a script, you indicate with a shebang on top which shell it should use. Example: <code>#!/usr/bin/env bash</code></li>
+</ul>
+</li>
+<li>
+<p>Let's also talk of sharing our shell config across systems</p>
+<ul>
+<li>yes!</li>
+<li>RD: I have one master .bashrc file one of my computers.  All edits go there, it gets copied to other computers.  So master config is always clear
+<ul>
+<li>Is this really so important? I never bothered. Maybe I am not advanced or not using the full shell potential.
+<ul>
+<li>I am switching between 3 computers and really appreciate that when I make an improvement on computer 1, I don't have to reinvent it on computers 2 and 3. I don't use any fancy solution but share my dotfiles via GitHub: https://github.com/bast/config
+<ul>
+<li>Okay, the master is in a private repo on github?
+<ul>
+<li>It's public. But I keep the more sensitive settings (ssh config) in another (private) repo.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Do you use non-bash shells also on HPC clusters? I have seen that other shells than bash can give issues...</p>
+<ul>
+<li>on clusters I recommend to use bash. I have tried zsh but some tools (module, lmod) assume bash and can break with &quot;non-standard&quot; shells.</li>
+<li>I see lmod has a fish profile.  But if your admins make it usable is another question.
+<ul>
+<li>hmm! I need to try this again then. I gave up after zsh didn't work but never tried fish - thanks!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="anne">Anne</h3>
+<ul>
+<li>Terminal for Windows users: MobaXterm
+<ul>
+<li>https://mobaxterm.mobatek.net/</li>
+</ul>
+</li>
+</ul>
+<h3 id="richard">Richard</h3>
+<ul>
+<li>
+<p><code>CDPATH</code></p>
+<ul>
+<li>just like <code>PATH</code> is used for running programs, <code>CDPATH</code> is used for <code>cd</code></li>
+<li>I set <code>CDPATH=~/git/</code>, so that I can <code>cd project-name</code> for any project in git directly</li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>! aliases</p>
+<ul>
+<li>We often need to re-run a command with the same argument.  For example, you often <code>mkdir dir-name</code> and then <code>cd dir-name</code>.  We want to type less?</li>
+<li><code>!$</code> means last argument of last command line.  <code>!</code> commands expand to recent history.  <code>$</code> means &quot;last argument&quot;</li>
+<li><code>!!</code> means entire previous line</li>
+<li>There is much more I won't go into</li>
+<li>(don't say) Line designator
+<ul>
+<li><code>!-n</code> refers to n:th previous line</li>
+<li><code>!string</code> is recent line beginning with <code>string</code>, or <code>!?string?</code> for previous line containing string</li>
+</ul>
+</li>
+<li>(don't say) Word designator: <code>:</code> + symbol, sometimes <code>:</code> optional
+<ul>
+<li><code>0</code>: zeroth argument (program name)</li>
+<li><code>^</code>: first argument</li>
+<li><code>$</code>: last argument</li>
+<li><code>x</code>, <code>x-y</code>, <code>x-</code>: range of word numbers.</li>
+</ul>
+</li>
+<li>(don't say) Modifiers
+<ul>
+<li><code>h</code>: remove trailing filename</li>
+<li><code>t</code>: remove head, leave only last pathname</li>
+</ul>
+</li>
+<li>Important options
+<ul>
+<li><code>shopt -s histreedit</code></li>
+<li><code>shopt -s histverify</code> - don't run, verify before running</li>
+</ul>
+</li>
+<li>bash manual page section: <a href="https://manpages.debian.org/bash/bash.1.en.html#HISTORY_EXPANSION">HISTORY EXPANSION</a></li>
+</ul>
+</li>
+<li>
+<p>per-directory bash history</p>
+<ul>
+<li>I have a per-directory shell history, which gets saved in <code>_bashhist</code> in each directory (once the shell terminates).</li>
+<li></li>
+<li>You can see the commands in hackmd, you can also find ideas in stack overflow.</li>
+<li>I have aliases <code>histsave</code>, <code>histread</code>, <code>histoff</code> as well</li>
+<li>Ignore this in git: ~/.gitignore, <code>git config core.excludesfile=~/.gitignore</code>.</li>
+<li>Warning: I wrote this myself, there are possibly bugs I haven't resolved yet.</li>
+</ul>
+</li>
+</ul>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>histsave() { history -a ; }
+</span><span>histread() { history -n ; history -n ; } # Needs it twice somehow...
+</span><span>histoff()  { HISTFILE=/dev/null ; }
+</span><span>cd_hook() {
+</span><span>    # This function handles a per-directory history file
+</span><span>    history -a
+</span><span>    command cd &quot;$@&quot; ;
+</span><span>    if [ -z &quot;$PS1&quot; -o -z &quot;$HISTFILE&quot; -o &quot;$HISTFILE&quot; = &quot;/dev/null&quot; ] ; then
+</span><span>        # Don&#39;t do histfile magic if not in interactive mode, HISTFILE
+</span><span>        # is unset or set to /dev/null
+</span><span>        return
+</span><span>    fi
+</span><span>    #if echo &quot;$PWD&quot; | grep &quot;^$HOME&quot; &gt;&gt; /dev/null &amp;&amp; test -w . -a -O . -a -G .;
+</span><span>    #if test -w . -a -O . -a -G .;
+</span><span>    if test -w . ;
+</span><span>    then
+</span><span>        # Within home directory
+</span><span>        HISTFILE=./_bashhist
+</span><span>    else
+</span><span>        HISTFILE=~/.bash_history
+</span><span>    fi
+</span><span>}
+</span><span>
+</span><span>alias cd=cd_hook
+</span><span>cd_hook $PWD
+</span><span>if [ &quot;$PS1&quot; -a x$_loaded_hist_once = x ] ; then
+</span><span>    history -r
+</span><span>    _loaded_hist_once=True
+</span><span>fi
+</span></code></pre>
+<ul>
+<li>Git aliases as bash aliases
+<ul>
+<li>We saw this when I tailed my <code>_bashhist</code> file, I used a lot of different aliases</li>
+<li>This way I can run <code>ci</code> instead of <code>git ci</code> that is aliased to <code>git commit -v</code>:</li>
+</ul>
+</li>
+</ul>
+<pre style="background-color:#f5f5f5;color:#1f1f1f;"><code><span>if [ -n &quot;$PS1&quot; ] ; then
+</span><span>    for gitalias in $(git config --name-only --get-regex ^alias.) ; do
+</span><span>        #echo $gitalias
+</span><span>        gitalias=&quot;${gitalias#*.}&quot;
+</span><span>        if ! type &quot;$gitalias&quot; &amp;&gt; /dev/null ; then
+</span><span>            eval alias &quot;${gitalias}=&#39;git ${gitalias}&#39;&quot;
+</span><span>        fi
+</span><span>    done ; unset gitalias
+</span><span>fi
+</span></code></pre>
+<h3 id="roberto">Roberto</h3>
+<p>I'll use the terminal in this <a href="https://mybinder.org/v2/gh/robertodr/nix-demo/HEAD">binder instance</a></p>
+<ul>
+<li>
+<p>why fish</p>
+</li>
+<li>
+<p>direnv</p>
+</li>
+<li>
+<p>nix-shell</p>
+</li>
+<li>
+<p>The prompt of my fish shell is configured using <a href="https://researchsoftwarehour.github.io/sessions/rsh-019/starship.rs">starship</a></p>
+</li>
+<li>
+<p>Where does nix store things per-user?  I see /nix, so this is like a top-level OS add-on?</p>
+<ul>
+<li>all dependencies are hashed and the paths are the hashes. This means that it can be stored top-level and if two people install the same dependency, it does not have to be twice on the hard-drive. So it's great for clusters (I wish clusters would use this ...)</li>
+</ul>
+</li>
+<li>
+<p>Can you have multiple environments?</p>
+<ul>
+<li>yes (but I don't remember how but Roberto knows and will fill in ...)
+<ul>
+<li>Yes, you can have as many shells as you need/want. I usually have one <code>shell.nix</code> inside every project folder and this gives me a different environment for every project.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>What are the differences between Nix and Guix?</p>
+<ul>
+<li>I think it's a similar idea implemented in two versions. Both are really nice. (but I have only tried the former)
+<ul>
+<li>The language is different and there might be some differences in what packages are accepted in the &quot;canonical&quot; repo for licensing reasons. I have never used Guix myself.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>can direnv load virtualenvs/conda environments?</p>
+<ul>
+<li>yes, any valid bash can be executed by .direnv</li>
+<li>would you do it by <code>source venv/bin/activate</code> in the .direnv?  can you tell it to unload when leaving the directory?</li>
+<li>OK, I see it is done with these functions that are smart about it</li>
+</ul>
+</li>
+</ul>
+<h3 id="radovan">Radovan</h3>
+<ul>
+<li>
+<p>what I like about fish</p>
+<ul>
+<li>aliases are functions</li>
+<li>autosuggestions and colors</li>
+<li>history is per-directory and context-aware</li>
+<li>simpler syntax (at the cost of not being POSIX-compilant)</li>
+<li>on a supercomputer/cluster I still advise to use bash (many tools assume bash and break otherwise)</li>
+</ul>
+</li>
+<li>
+<p>jumping between folders (cd -, pushd, popd)</p>
+</li>
+<li>
+<p>for loops: renaming many files at once</p>
+</li>
+<li>
+<p>let's use some command that I don't use every day</p>
+</li>
+<li>
+<p>tldr</p>
+<ul>
+<li>There's also a Rust implementation of it! It's called <a href="https://github.com/dbrgn/tealdeer">tealdeer</a></li>
+</ul>
+</li>
+<li>
+<p>reusing past commands (reverse-i-search with CTRL+R)</p>
+<ul>
+<li>I use <a href="https://github.com/junegunn/fzf">fzf</a> with Bash</li>
+</ul>
+</li>
+<li>
+<p>editing past commands (how to move to start or end of a line: CTRL+A or CTRL+E)</p>
+</li>
+<li>
+<p>That for loop was MATLAB syntax! :D &lt;3</p>
+<ul>
+<li>oh! TIL!</li>
+</ul>
+</li>
+<li>
+<p>Never tried but I heard good things about <a href="https://www.gnu.org/software/stow/">GNU Stow</a> to keep track of dot files</p>
+<ul>
+<li>thanks for sharing this!</li>
+</ul>
+</li>
+</ul>
+
+  
+
+  
+
+      </div>
+
+      <div class="top-buffer">
+        <hr>
+
+        <div class="ui horizontal list">
+          <div class="item">
+            <div class="content">
+              <i class="twitch violet icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitch.tv/RSHour">twitch</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="file outline icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://hackmd.io/@researchsoftwarehour/questions">hackmd</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="youtube red icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://www.youtube.com/playlist?list=PLpLblYHCzJAB6blBBa0O2BEYadVZV3JYf">videos</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/ResearchSoftwareHour">ResearchSoftwareHour</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/rkdarst">rkdarst</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="github icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://github.com/bast">bast</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/coderefine">coderefine</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/SciCompAalto">SciCompAalto</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <i class="twitter blue icon"></i>
+              <a class="item"
+                 target="_blank"
+                 href="https://twitter.com/__radovan">__radovan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+  </body>
+</html>
