@@ -20,7 +20,7 @@ program will evolve as our audience likes:
 
 - **Scientific computing support skills**, tools you need to do
   scientific computing: git, automated testing, documentation, working
-  with pip/conda, Github, Jupyter.
+  with pip/conda, GitHub, Jupyter.
 
 - **Evaluate watcher-submitted code**: We'll take code our watchers
   submit, evaluate on stream and give suggestions for improvements. Suggest by making an
