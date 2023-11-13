@@ -11,7 +11,7 @@ Watchers can take part by suggesting ideas, contribute code or
 problems to discuss on stream, or even joining to directly be a part
 of the show.
 
-We hope to resume in Spring 2022.
+We hope to resume ~~in Spring 2022~~ early 2024.
 
 
 ## Upcoming shows
